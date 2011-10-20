@@ -1,1 +1,1 @@
-Display
+Klicken Sie hier!
