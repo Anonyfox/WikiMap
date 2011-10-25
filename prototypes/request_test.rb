@@ -17,9 +17,9 @@ Shoes.app height: 400, width: 600, title: "Wiki Request Test" do
 	@b.click do
 		query = @q.text
 		wiki_url = WikiParser.build_url query
-		debug wiki_url
-		download wiki_url do |wp|
-			#alert wp.response.body.to_s
+		#debug wiki_url
+		download wiki_url do |wiki|
+			alert( WikiParser.get_pages wiki.response.body )
 		end
 	end
 
