@@ -30,8 +30,8 @@ class AddPageTable < ActiveRecord::Migration
 end
 
 #=begin
-AddLinkTable.migrate :down
-AddPageTable.migrate :down
+#AddLinkTable.migrate :down
+#AddPageTable.migrate :down
 AddLinkTable.migrate :up
 AddPageTable.migrate :up
 #=end
