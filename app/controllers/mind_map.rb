@@ -14,7 +14,7 @@ class MindMap
 		phrase = params[:phrase] || nil
 		links = params[:links]
 		return false unless phrase
-		@page = Page.new phrase: phrase. crawled = true
+		@page = Page.new phrase: phrase, crawled: true
 		@page.save
 		@links = []
 		links.each {|l| add_link pg.id, l }
