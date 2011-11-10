@@ -18,14 +18,6 @@ module WikiParser
 		URI.escape(str)
 	end
 
-	def self.get_pages(json_response)
-		resp = JSON.parse json_response
-		resp
-	end
-
-	def extract_phrase_of url
-	end
-
 end
 
 #p WikiParser.build_search_url "penis"
