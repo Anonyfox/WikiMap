@@ -10,6 +10,8 @@ require 'uri'
 
 module WikiClient
 
+	# build a valid request-url with the given string. this url
+	# should be used to find matching topics to the given string
 	def self.build_search_url str
 		search = "http://de.wikipedia.org/w/api.php?action=opensearch" +
 		"&format=json" +
@@ -17,6 +19,11 @@ module WikiClient
 		URI.escape(str)
 	end
 
+	# build a valid request-url with the given string. if this string
+	# is not a valid Wikipedia-Topic, you will get errors later! 
+	# Best Practise is to use one of the Strings returned by the
+	# search-request. this url should be used to get all links of
+	# a topic
 	def self.build_query_url str
 		query = "http://de.wikipedia.org/w/api.php?action=query" +
 		"&format=json&prop=links&pllimit=500" +
