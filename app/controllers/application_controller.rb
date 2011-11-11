@@ -1,51 +1,57 @@
 #encoding: utf-8
 
-require_relative 'mind_map'
+require_relative 'page_controller'
 require_relative '../lib/wiki_client'
+require 'pp' #for structured test output
 
 # This class is the main controller of the application. 
 # it merges the WikiClient with the MindMap-Controller
 # and organizes the views.
-class WikiMap
+class ApplicationController
 
 	def initialize
+		draw_main_window
 	end
 
 	def ask_wiki_for str
 		list = false
 		Thread.new do
 			list = WikiClient.ask(str)
+			draw_options_list list
 		end
+		# testing helper
 		until list
 			sleep 0.1
 		end
-		puts list
 	end
 
 	def crawl_page str
 		list = false
-		Thread.new do
+		#Thread.new do
 			list = WikiClient.get str
-		end
+			pc = PageController.new phrase: str, links: list
+			draw_mindmap pc.target_pages
+		#end
+		# testing helper
 		until list
 			sleep 0.1
 		end
-		puts list
 	end
 
-	def delete_page str
+	def draw_main_window
+		puts "\n\nSuchbegriff?"
 	end
 
-private
-	
-	def get_page str
+	def draw_options_list params
+		pp params
 	end
 
-	def page_exists? str
+	def draw_mindmap params
+		pp params
 	end
 end
 
-w = WikiMap.new
+w = ApplicationController.new
 
 ###########################################
 # function test for opensearch
@@ -64,10 +70,13 @@ end
 ###########################################
 # function test for query
 ###########################################
+#=begin
+#pg = Page.find(2)
+#pg.delete
 loop do
-	puts "\n\nSuchbegriff?"
 	q = gets.chomp
 	break if q == "exit"
 	puts "\nErgebnisse:\n"
 	w.crawl_page q
 end
+#=end

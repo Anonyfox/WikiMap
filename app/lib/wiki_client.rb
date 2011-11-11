@@ -55,5 +55,5 @@ module WikiClient
 
 end
 
-WikiClient.ask "penis" # => list of phrases
-WikiClient.get "Penis" # => links of this page
+#WikiClient.ask "penis" # => list of phrases
+#WikiClient.get "Penis" # => links of this page

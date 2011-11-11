@@ -2,9 +2,12 @@ Das Repo zum WikiMap (Wikipedia Mindmap). Projektverwaltung findet im Redmine st
 
 Kurze Erklärung zu der Ordnerhierarchie: 
 
-/db/   -   hier kommt die Datenbank mitsamt relevanter Konfiguration rein. 
 /app/  -   hier liegt die eigentliche Anwendung. Strukturiert in der MVC-Architektur !
-/app/lib/   -   Der Platz für extern verwendete Bibliotheken o. Ä.
+/app/lib/   -   Der Platz für verwendete Module
+/app/db/		-		Konfiguration der Datenbank und Migrationen
+/app/controllers/		-		ApplicationController und alle ModellController
+/app/models/		-		Alle Modelle
+/app/views/			- 	Alle Views
 /prototypes/  -   Hier liegen Beispiele die mit Shoes zu Demonstrationszwecken erstellt wurden!
 /test/ -    Hier kommen die ganzen Tests rein!
 
