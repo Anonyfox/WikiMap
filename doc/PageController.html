@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: PageController</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./app/controllers/page_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/controllers/page_controller.rb">app/controllers/page_controller.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-add_target_pages">#add_target_pages</a></li>
+					
+					<li><a href="#method-i-add_uncrawled_page">#add_uncrawled_page</a></li>
+					
+					<li><a href="#method-i-lookup_target_pages">#lookup_target_pages</a></li>
+					
+					<li><a href="#method-i-page_exists%3F">#page_exists?</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./AddPageTable.html">AddPageTable</a></li>
+				
+					<li><a href="./ApplicationController.html">ApplicationController</a></li>
+				
+					<li><a href="./Page.html">Page</a></li>
+				
+					<li><a href="./PageController.html">PageController</a></li>
+				
+					<li><a href="./WikiClient.html">WikiClient</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">PageController</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="phrase-attribute-method" class="method-detail">
+				<a name="phrase"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">phrase</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="target-pages-attribute-method" class="method-detail">
+				<a name="target_pages"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">target_pages</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="target-page-names-attribute-method" class="method-detail">
+				<a name="target_page_names"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">target_page_names</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(params)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+create a new page. expects a phrase and a link list. opens an existing page
+if there is one. The link list is optional. sample call:
+</p>
+<ul>
+<li><p>
+pc = PageController.new phrase: my_phrase, links: [&#8220;link_1&#8220;,
+&#8220;link_2&#8220;]
+</p>
+</li>
+</ul>
+<p>
+in the :<a href="PageController.html#target_pages">target_pages</a>
+attribute stands an array of Page-Objects. if you just want the names, just
+use the :<a
+href="PageController.html#target_page_names">target_page_names</a> 
+attribute.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/page_controller.rb, line 16</span>
+16:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">params</span>
+17:                 <span class="ruby-identifier">phrase</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:phrase</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">nil</span>
+18:                 <span class="ruby-identifier">links</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:links</span>] <span class="ruby-operator">||</span> []
+19:                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">phrase</span>
+20: 
+21:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">page_exists?</span> <span class="ruby-identifier">phrase</span>
+22:                         <span class="ruby-ivar">@page</span> = <span class="ruby-constant">Page</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">phrase</span>)[<span class="ruby-value">0</span>]
+23:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">crawled</span>
+24:                                 <span class="ruby-comment cmt"># TODO: recrawl here if old informations</span>
+25:                                 <span class="ruby-ivar">@targets</span> = <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">targets</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;,&quot;</span>)
+26:                         <span class="ruby-keyword kw">else</span>
+27:                                 <span class="ruby-ivar">@targets</span> = <span class="ruby-identifier">add_target_pages</span>(<span class="ruby-identifier">links</span>)
+28:                                 <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">targets</span> = <span class="ruby-ivar">@targets</span>.<span class="ruby-identifier">join</span> <span class="ruby-value str">&quot;,&quot;</span>
+29:                                 <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">save</span>
+30:                         <span class="ruby-keyword kw">end</span>
+31: 
+32:                 <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt">#create a new page</span>
+33:                         <span class="ruby-ivar">@page</span> = <span class="ruby-constant">Page</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">phrase</span>, <span class="ruby-identifier">crawled</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>
+34:                         <span class="ruby-ivar">@targets</span> = <span class="ruby-identifier">add_target_pages</span>(<span class="ruby-identifier">links</span>)
+35:                         <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">targets</span> = <span class="ruby-ivar">@targets</span>.<span class="ruby-identifier">join</span> <span class="ruby-value str">&quot;,&quot;</span>
+36:                         <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">save</span>
+37:                 <span class="ruby-keyword kw">end</span>
+38:                 <span class="ruby-ivar">@target_pages</span> = <span class="ruby-identifier">lookup_target_pages</span>
+39:                 <span class="ruby-ivar">@target_page_names</span> = <span class="ruby-ivar">@target_pages</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">pg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pg</span>.<span class="ruby-identifier">phrase</span>}
+40:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="add-target-pages-method" class="method-detail ">
+				<a name="method-i-add_target_pages"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_target_pages</span><span
+						class="method-args">(list=[])</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+go through the given phrases-array, lookup the pages,  create pages which
+are missing, and return a complete array of all the page objects.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-target-pages-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/page_controller.rb, line 72</span>
+72:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_target_pages</span> <span class="ruby-identifier">list</span>=[]
+73:                 <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">phrase</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_uncrawled_page</span>(<span class="ruby-identifier">phrase</span>) }
+74:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="add-uncrawled-page-method" class="method-detail ">
+				<a name="method-i-add_uncrawled_page"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_uncrawled_page</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+add a new page with the givem phrase and return its id. If a page with this
+phrase is existing yet, just take this one and return its id.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-uncrawled-page-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/page_controller.rb, line 52</span>
+52:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_uncrawled_page</span> <span class="ruby-identifier">name</span>
+53:                 <span class="ruby-identifier">crawled_page</span> = <span class="ruby-constant">Page</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>)[<span class="ruby-value">0</span>]
+54:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">crawled_page</span> <span class="ruby-comment cmt">#take this one</span>
+55:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">crawled_page</span>.<span class="ruby-identifier">id</span>
+56:                 <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt">#create a new page</span>
+57:                         <span class="ruby-identifier">new_page</span> = <span class="ruby-constant">Page</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">crawled</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+58:                         <span class="ruby-identifier">new_page</span>.<span class="ruby-identifier">save</span>
+59:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">new_page</span>.<span class="ruby-identifier">id</span>
+60:                 <span class="ruby-keyword kw">end</span>
+61:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="lookup-target-pages-method" class="method-detail ">
+				<a name="method-i-lookup_target_pages"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">lookup_target_pages</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+lists all pages the corresponding links are referring to
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="lookup-target-pages-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/page_controller.rb, line 45</span>
+45:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lookup_target_pages</span>
+46:                 <span class="ruby-ivar">@targets</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">page_id</span><span class="ruby-operator">|</span> <span class="ruby-constant">Page</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">page_id</span> }
+47:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="page-exists--method" class="method-detail ">
+				<a name="method-i-page_exists%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">page_exists?</span><span
+						class="method-args">(phrase)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+simply check if there is a page with the given phrase
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="page-exists--source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/page_controller.rb, line 64</span>
+64:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_exists?</span> <span class="ruby-identifier">phrase</span>
+65:                 <span class="ruby-identifier">page</span> = <span class="ruby-constant">Page</span>.<span class="ruby-identifier">where</span> <span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">phrase</span>
+66:                 <span class="ruby-identifier">page</span> <span class="ruby-operator">==</span> [] <span class="ruby-operator">?</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>
+67:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

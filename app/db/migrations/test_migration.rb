@@ -22,6 +22,6 @@ class AddPageTable < ActiveRecord::Migration
 end
 
 #=begin
-#AddPageTable.migrate :down
+AddPageTable.migrate :down
 AddPageTable.migrate :up
 #=end

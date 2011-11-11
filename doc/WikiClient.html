@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: WikiClient</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./app/lib/wiki_client_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/lib/wiki_client.rb">app/lib/wiki_client.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-ask">::ask</a></li>
+					
+					<li><a href="#method-c-build_query_url">::build_query_url</a></li>
+					
+					<li><a href="#method-c-build_search_url">::build_search_url</a></li>
+					
+					<li><a href="#method-c-get">::get</a></li>
+					
+					<li><a href="#method-c-response_links">::response_links</a></li>
+					
+					<li><a href="#method-c-response_list">::response_list</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./AddPageTable.html">AddPageTable</a></li>
+				
+					<li><a href="./ApplicationController.html">ApplicationController</a></li>
+				
+					<li><a href="./Page.html">Page</a></li>
+				
+					<li><a href="./PageController.html">PageController</a></li>
+				
+					<li><a href="./WikiClient.html">WikiClient</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">WikiClient</h1>
+
+		<div id="description">
+			<p>
+This standalone Module builds the correct URLs for requesting wikipedia,
+and implements the full http request to get the  results. 
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="ask-method" class="method-detail ">
+				<a name="method-c-ask"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">ask</span><span
+						class="method-args">(search_str)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Request the given URL, get the page content, format the stuff to JSON and
+return the wanted informations as Array
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="ask-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/lib/wiki_client.rb, line 19</span>
+19:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ask</span> <span class="ruby-identifier">search_str</span>
+20:                 <span class="ruby-identifier">search_url</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">build_search_url</span> <span class="ruby-identifier">search_str</span>
+21:                 <span class="ruby-identifier">h</span> = <span class="ruby-identifier">open</span>(<span class="ruby-identifier">search_url</span>).<span class="ruby-identifier">read</span>
+22:                 <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">response_list</span> <span class="ruby-constant">JSON</span>(<span class="ruby-identifier">h</span>)
+23:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="get-method" class="method-detail ">
+				<a name="method-c-get"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get</span><span
+						class="method-args">(query_str)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Request the given URL, parse the response to JSON, and return  the wanted
+phrases as an Array
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="get-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/lib/wiki_client.rb, line 27</span>
+27:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">query_str</span>
+28:                 <span class="ruby-identifier">query_url</span> = <span class="ruby-identifier">build_query_url</span> <span class="ruby-identifier">query_str</span>
+29:                 <span class="ruby-identifier">h</span> = <span class="ruby-identifier">open</span>(<span class="ruby-identifier">query_url</span>).<span class="ruby-identifier">read</span>
+30:                 <span class="ruby-identifier">response_links</span> <span class="ruby-constant">JSON</span>(<span class="ruby-identifier">h</span>)
+31:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-class-method-details" class="method-section section">
+			<h3 class="section-header">Private Class Methods</h3>
+
+		
+			<div id="build-query-url-method" class="method-detail ">
+				<a name="method-c-build_query_url"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">build_query_url</span><span
+						class="method-args">(str)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+build a valid request-url with the given string. if this string is not a
+valid Wikipedia-Topic, you will get errors later!  Best Practise is to use
+one of the Strings returned by the search-request. this url should be used
+to get all links of a topic
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="build-query-url-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/lib/wiki_client.rb, line 49</span>
+49:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">build_query_url</span> <span class="ruby-identifier">str</span>
+50:                 <span class="ruby-identifier">query</span> = <span class="ruby-value str">&quot;http://de.wikipedia.org/w/api.php?action=query&quot;</span> <span class="ruby-operator">+</span>
+51:                 <span class="ruby-value str">&quot;&amp;format=json&amp;prop=links&amp;pllimit=500&quot;</span> <span class="ruby-operator">+</span>
+52:                 <span class="ruby-value str">&quot;&amp;titles=&quot;</span> <span class="ruby-operator">+</span>
+53:                 <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">str</span>)
+54:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="build-search-url-method" class="method-detail ">
+				<a name="method-c-build_search_url"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">build_search_url</span><span
+						class="method-args">(str)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+build a valid request-url with the given string. this url should be used to
+find matching topics to the given string
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="build-search-url-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/lib/wiki_client.rb, line 37</span>
+37:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">build_search_url</span> <span class="ruby-identifier">str</span>
+38:                 <span class="ruby-identifier">search</span> = <span class="ruby-value str">&quot;http://de.wikipedia.org/w/api.php?action=opensearch&quot;</span> <span class="ruby-operator">+</span>
+39:                 <span class="ruby-value str">&quot;&amp;format=json&quot;</span> <span class="ruby-operator">+</span>
+40:                 <span class="ruby-value str">&quot;&amp;search=&quot;</span> <span class="ruby-operator">+</span> 
+41:                 <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">str</span>)
+42:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="response-links-method" class="method-detail ">
+				<a name="method-c-response_links"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">response_links</span><span
+						class="method-args">(json)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+the helper method of of WikiClient.get, which extracts the wanted links
+from the JSON-Object and returns them as an Array
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="response-links-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/lib/wiki_client.rb, line 65</span>
+65:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">response_links</span> <span class="ruby-identifier">json</span>
+66:                 <span class="ruby-identifier">links</span> = []
+67:                 <span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;query&quot;</span>][<span class="ruby-value str">&quot;pages&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+68:                         <span class="ruby-comment cmt"># there is only one entry with the page_id, </span>
+69:                         <span class="ruby-comment cmt"># so this runs just once. a simple workaround</span>
+70:                         <span class="ruby-identifier">value</span>[<span class="ruby-value str">&quot;links&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
+71:                                 <span class="ruby-identifier">links</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value str">&quot;title&quot;</span>]
+72:                         <span class="ruby-keyword kw">end</span>
+73:                 <span class="ruby-keyword kw">end</span>
+74:                 <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">links</span>
+75:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="response-list-method" class="method-detail ">
+				<a name="method-c-response_list"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">response_list</span><span
+						class="method-args">(json)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+a helper method to extract the Names-list of the JSON-object of the ask
+method
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="response-list-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/lib/wiki_client.rb, line 58</span>
+58:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">response_list</span> <span class="ruby-identifier">json</span>
+59:                 <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">json</span>[<span class="ruby-value">1</span>]
+60:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

@@ -8,7 +8,29 @@ require 'json'
 require 'open-uri'
 require 'uri'
 
+# This standalone Module builds the correct URLs for requesting
+# wikipedia, and implements the full http request to get the 
+# results. 
+# 
 module WikiClient
+
+	# Request the given URL, get the page content, format the
+	# stuff to JSON and return the wanted informations as Array
+	def self.ask search_str
+		search_url = self.build_search_url search_str
+		h = open(search_url).read
+		self.response_list JSON(h)
+	end
+
+	# Request the given URL, parse the response to JSON, and return 
+	# the wanted phrases as an Array
+	def self.get query_str
+		query_url = build_query_url query_str
+		h = open(query_url).read
+		response_links JSON(h)
+	end
+
+private
 
 	# build a valid request-url with the given string. this url
 	# should be used to find matching topics to the given string
@@ -31,28 +53,20 @@ module WikiClient
 		URI.escape(str)
 	end
 
-	# get the list of topics
-	def self.ask search_str
-		search_url = self.build_search_url search_str
-		h = open(search_url).read
-		self.response_list JSON(h)
-	end
-
+	# a helper method to extract the Names-list of the JSON-object
+	# of the ask method
 	def self.response_list json
 		return json[1]
 	end
 
-	def self.get query_str
-		query_url = build_query_url query_str
-		h = open(query_url).read
-		response_links JSON(h)
-	end
-
+	# the helper method of of WikiClient.get, which extracts
+	# the wanted links from the JSON-Object and returns
+	# them as an Array
 	def self.response_links json
 		links = []
 		json["query"]["pages"].each do |key, value|
 			# there is only one entry with the page_id, 
-			# so this runs just once
+			# so this runs just once. a simple workaround
 			value["links"].each do |hash|
 				links.push hash["title"]
 			end

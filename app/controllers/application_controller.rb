@@ -34,11 +34,11 @@ class ApplicationController
 	# finally update the gui with the results
 	def crawl_page str
 		list = false
-		Thread.new do
+		#Thread.new do
 			list = WikiClient.get str
 			pc = PageController.new phrase: str, links: list
 			draw_mindmap pc.target_pages
-		end
+		#end
 		# testing helper, remove this if the gui is used
 		until list
 			sleep 0.1
@@ -68,7 +68,7 @@ class ApplicationController
 	# a nice formatted list. This method expects an Array of Page-
 	# Objects.
 	def draw_mindmap ary=[]
-		pp params
+		pp ary
 	end
 end
 
