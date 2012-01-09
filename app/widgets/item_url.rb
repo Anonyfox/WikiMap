@@ -8,9 +8,11 @@ class Shoes::ItemUrl < Shoes::Widget
 		draw_normal
 		@main.hover { draw_hovered }
 		@main.leave { draw_normal }
-		@main.click { 
+		@main.click {
 			answer = WikiClient.get @name
-			$mindmap.update answer.to_s
+			# Create Output Picture
+			WikiClient.output @name, answer
+			$mindmap.update
 		}
 	end
 

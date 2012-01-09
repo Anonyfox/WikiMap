@@ -7,6 +7,7 @@
 require 'json'
 require 'open-uri'
 require 'uri'
+require_relative '../lib/graph-viz-simple'
 
 # This standalone Module builds the correct URLs for requesting
 # wikipedia, and implements the full http request to get the 
@@ -28,6 +29,24 @@ module WikiClient
 		query_url = build_query_url query_str
 		h = open(query_url).read
 		response_links JSON(h)
+	end
+
+	def self.output phrase, links=[]
+		graph = GraphvizSimple.new("MindMap")
+		graph.node_attributes
+		graph.edge_attributes = {"arrowhead" => "diamond"}
+
+		# Add root node
+		graph.add_node phrase
+		
+		links.each do |link| 
+			# Add nodes
+			graph.add_node link
+			# Add edges
+			graph.add_edge phrase, link
+		end
+		
+		graph.output("tmp/my_graph.png", "png", "neato")
 	end
 
 private
