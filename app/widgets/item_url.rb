@@ -8,36 +8,21 @@ class Shoes::ItemUrl < Shoes::Widget
 		draw_normal
 		@main.hover { draw_hovered }
 		@main.leave { draw_normal }
-		@main.click {
-			#Thread.new {
-				$mindmap.waitscreen
-				$last_choices << $clicked.dup if $clicked
-				$clicked = @name
-				$answer = WikiClient.get @name
-				if $answer.size < 200
-					# Create Output Picture
-					WikiClient.output @name, $answer, $img_counter
-					$mindmap.update
-					$picture_created ||= true
-					$img_counter += 1
-				else
-					$ERROR_TOO_MANY.call
-				end
-				$redraw_optins.call $answer
-			#}
+		@main.click { 
+			$update_state.call @name
 		}
 	end
 
 	def draw_normal
 		@main.clear {
-			para @name, size: 10
+			para @name, size: 10, leading: 1
 		}
 	end
 
 	def draw_hovered
 		@main.clear {
 			background cornflowerblue, curve: 5
-			para @name, size: 10
+			para @name, size: 10, leading: 1
 		}
 	end
 end

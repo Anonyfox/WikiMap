@@ -54,7 +54,7 @@ module WikiClient
 			graph.add_edge phrase.force_encoding("UTF-8"), link.force_encoding("UTF-8")
 		end
 		
-		mode = links.size > 10 ? "fdp" : "dot"
+		mode = "fdp" #= links.size > 10 ? "fdp" : "dot"
 		#mode = "fdp" if links.size > 50 #performace issue
 
 		graph.output destination, "png", mode#, #["-n 1"]
@@ -97,7 +97,7 @@ private
 		json["query"]["pages"].each do |key, value|
 			# there is only one entry with the page_id, 
 			# so this runs just once. a simple workaround
-			value["links"].each do |hash|
+			(value["links"] || []).each do |hash|
 				links.push hash["title"]
 			end
 		end

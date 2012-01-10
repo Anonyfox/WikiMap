@@ -22,6 +22,8 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 	$ERROR_TOO_MANY = Proc.new { 
 		alert "sorry, too many items! (#{$answer.size})" 
 	}
+
+	# standard routines
 	$redraw_options = Proc.new {|list=nil|
 		$list_stack.clear {
 			if list
@@ -32,11 +34,28 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 			$choices.each {|name| item_url name }
 		}
 	}
+	$update_state = Proc.new {|name|
+		$clicked = name
+		$last_choices << $clicked.dup
+		$answer = WikiClient.get name
+		$redraw_options.call $anwer
+		WikiClient.output name, $answer, $img_counter
+		$mindmap.update
+		$picture_created ||= true
+		$img_counter += 1
+	}
 
 	flow do
 
 		# title flow
 		flow do
+			@back = button "<<"
+			@back.click {
+				unless $last_choices.empty?
+					@search.text = $last_choices.pop
+					redraw_options
+				end
+			}
 			@search = edit_line width: 300
 			# do search button
 			@go = button "search!"
