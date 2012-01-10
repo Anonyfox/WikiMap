@@ -38,20 +38,18 @@ module WikiClient
 		graph.edge_attributes = {"arrowhead" => "vee"}
 
 		# normalize phrase
-		phrase.gsub!(/\W/, '_')
+		rphrase = phrase.gsub(/\W/, '_')
 
 		# Add root node
-		graph.add_node phrase
+		graph.add_node rphrase, {"label" => phrase}
 		links.delete phrase # no self links
 
 		links.uniq.each do |link|
-			link.gsub!(/\W/, '_')
-			#require 'pp'
-			#pp link
+			rlink = link.gsub(/\W/, '_')
 			# Add nodes
-			graph.add_node link.force_encoding("UTF-8")
+			graph.add_node rlink.force_encoding("UTF-8"), {"label" => link}
 			# Add edges
-			graph.add_edge phrase.force_encoding("UTF-8"), link.force_encoding("UTF-8")
+			graph.add_edge rphrase.force_encoding("UTF-8"), rlink.force_encoding("UTF-8")
 		end
 		
 		mode = "fdp" #= links.size > 10 ? "fdp" : "dot"
