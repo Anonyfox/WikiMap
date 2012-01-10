@@ -17,9 +17,20 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 	$choices = nil
 	$clicked = nil
 	$answer = nil
+	$last_choices = []
 	$img_counter = 0
 	$ERROR_TOO_MANY = Proc.new { 
 		alert "sorry, too many items! (#{$answer.size})" 
+	}
+	$redraw_options = Proc.new {|list=nil|
+		$list_stack.clear {
+			if list
+				$choices = list
+		  else
+				$choices = WikiClient.ask @search.text
+			end
+			$choices.each {|name| item_url name }
+		}
 	}
 
 	flow do
@@ -30,10 +41,11 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 			# do search button
 			@go = button "search!"
 			@go.click{ 
-				@list_stack.clear {
-					$choices = WikiClient.ask @search.text
-					$choices.each {|name| item_url name }
-				}
+				#$list_stack.clear {
+				#	$choices = WikiClient.ask @search.text
+				#	$choices.each {|name| item_url name }
+				#}
+				$redraw_options.call
 			}
 			# random search button
 			@random = button "random!"
@@ -60,7 +72,7 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 		end #title flow
 		
 		# list stack
-		@list_stack = stack width: 300
+		$list_stack = stack width: 300
 
 		# mindmap picture
 		stack width: 700 do

@@ -38,9 +38,7 @@ module WikiClient
 		graph.edge_attributes = {"arrowhead" => "vee"}
 
 		# normalize phrase
-		phrase.gsub!(/(\w)\W(\w)/){ "#{$1}_#{$2}" }
-		phrase.gsub!(/\A\s*/, '')
-		phrase.gsub!(/\s*\z/, '')
+		phrase.gsub!(/\W/, '_')
 
 		# Add root node
 		graph.add_node phrase
@@ -48,8 +46,8 @@ module WikiClient
 
 		links.uniq.each do |link|
 			link.gsub!(/\W/, '_')
-			require 'pp'
-			pp link
+			#require 'pp'
+			#pp link
 			# Add nodes
 			graph.add_node link.force_encoding("UTF-8")
 			# Add edges

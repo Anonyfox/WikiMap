@@ -11,9 +11,10 @@ class Shoes::ItemUrl < Shoes::Widget
 		@main.click {
 			#Thread.new {
 				$mindmap.waitscreen
+				$last_choices << $clicked.dup if $clicked
 				$clicked = @name
 				$answer = WikiClient.get @name
-				if $answer.size < 150
+				if $answer.size < 200
 					# Create Output Picture
 					WikiClient.output @name, $answer, $img_counter
 					$mindmap.update
@@ -22,6 +23,7 @@ class Shoes::ItemUrl < Shoes::Widget
 				else
 					$ERROR_TOO_MANY.call
 				end
+				$redraw_optins.call $answer
 			#}
 		}
 	end
