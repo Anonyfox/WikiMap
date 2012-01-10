@@ -34,29 +34,22 @@ module WikiClient
 	def self.output phrase, links=[], img_counter=0, destination=nil
 		destination ||= "tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
-		#graph.graph_attributes = {"smoothing" => "true"}
 		graph.edge_attributes = {"arrowhead" => "vee"}
-
+		
 		# normalize phrase
 		rphrase = phrase.gsub(/\W/, '_')
 
-		# Add root node
-		graph.add_node rphrase, {"label" => phrase}
-		links.delete phrase # no self links
-
+		# Add nodes and edges
+		graph.add_node rphrase, {"label" => phrase} #root
+		links.delete rphrase # no self links
 		links.uniq.each do |link|
 			rlink = link.gsub(/\W/, '_')
 			# Add nodes
-			graph.add_node rlink.force_encoding("UTF-8"), {"label" => link}
-			# Add edges
-			graph.add_edge rphrase.force_encoding("UTF-8"), rlink.force_encoding("UTF-8")
+			graph.add_node rlink, {"label" => link}
+			graph.add_edge rphrase, rlink
 		end
-		
-		mode = "fdp" #= links.size > 10 ? "fdp" : "dot"
-		#mode = "fdp" if links.size > 50 #performace issue
 
-		graph.output destination, "png", mode#, #["-n 1"]
-		#graph.output "#{destination}.svg", "svg", mode
+		graph.output destination, "png", "fdp"
 	end
 
 private
