@@ -8,22 +8,6 @@ require './app/lib/graph-viz-simple'
 require './app/lib/wiki_client'
 
 Shoes.app title: "WikiMap", width: 820 do
-g = GraphvizSimple.new("G")
-g.node_attributes
-g.edge_attributes = {"arrowhead" => "diamond"}
-g.add_node("a")
-g.add_node("b")
-g.add_node("c")
-g.add_node("d")
-g.add_node("e")
-g.add_node("f")
-g.add_edge("a", "b")
-g.add_edge("a", "c")
-g.add_edge("a", "d")
-g.add_edge("a", "e")
-g.add_edge("a", "f")
-g.output("tmp/my_graph.png", "png", "neato")
-
 	require './app/widgets/item_url'
 	require './app/widgets/mind_map'
 
@@ -49,7 +33,7 @@ g.output("tmp/my_graph.png", "png", "neato")
 
 		# mindmap picture
 		stack width: 500 do
-			$mindmap = mind_map "empty"
+			image "tmp/my_graph.png", width: 500, height: 500
 		end
 
 	end
