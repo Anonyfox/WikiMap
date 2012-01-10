@@ -58,6 +58,7 @@ module WikiClient
 		#mode = "fdp" if links.size > 50 #performace issue
 
 		graph.output destination, "png", mode#, #["-n 1"]
+		#graph.output "#{destination}.svg", "svg", mode
 	end
 
 private
