@@ -6,10 +6,9 @@ end
 
 require 'fileutils'
 require './app/lib/wiki_client'
+require './app/controllers/page_controller'
 
 Shoes.app title: "WikiMap", width: 1000, height: 700 do
-	$app = self
-
 	require './app/widgets/item_url'
 	require './app/widgets/mind_map'
 

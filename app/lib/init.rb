@@ -31,7 +31,7 @@ module Init
 				}
 			}
 			$update_state = Proc.new {|name|
-				Thread.new {
+				#Thread.new {
 					$update_progress.call 'looking...', 0.2
 					$mindmap.waitscreen
 					$clicked = name
@@ -40,13 +40,14 @@ module Init
 					$update_progress.call 'redraw options list...', 0.4
 					$redraw_options.call $anwer
 					$update_progress.call 'rendering mindmap...', 0.6
+					debug "before Client"
 					WikiClient.output name, $answer, $img_counter# rescue alert "fail"
 					$update_progress.call 'cleaning up...', 0.8
 					$mindmap.update
 					$picture_created ||= true
 					$img_counter += 1
 					$update_progress.call 'ready!', 1.0
-				}
+				#}
 			}
 			$update_progress = Proc.new {|message, value|
 				$progress.fraction = value
