@@ -7,6 +7,7 @@ end
 require 'fileutils'
 require './app/lib/wiki_client'
 require './app/controllers/page_controller'
+require './app/db/data_base'
 
 Shoes.app title: "WikiMap", width: 1000, height: 700 do
 	require './app/widgets/item_url'
@@ -15,8 +16,6 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 	# Initialize
 	require "./app/lib/init"
 	Init.on_startup(self)
-
-	
 
 	flow do
 
