@@ -35,14 +35,26 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 		}
 	}
 	$update_state = Proc.new {|name|
-		$clicked = name
-		$last_choices << $clicked.dup
-		$answer = WikiClient.get name
-		$redraw_options.call $anwer
-		WikiClient.output name, $answer, $img_counter
-		$mindmap.update
-		$picture_created ||= true
-		$img_counter += 1
+		Thread.new {
+			$update_progress.call 'looking...', 0.2
+			$mindmap.waitscreen
+			$clicked = name
+			$last_choices << $clicked.dup
+			$answer = WikiClient.get name
+			$update_progress.call 'redraw options list...', 0.4
+			$redraw_options.call $anwer
+			$update_progress.call 'rendering mindmap...', 0.6
+			WikiClient.output name, $answer, $img_counter
+			$update_progress.call 'cleaning up...', 0.8
+			$mindmap.update
+			$picture_created ||= true
+			$img_counter += 1
+			$update_progress.call 'ready!', 1.0
+		}
+	}
+	$update_progress = Proc.new {|message, value|
+		$progress.fraction = value
+		$progress_info.text = message
 	}
 
 	flow do
@@ -90,6 +102,13 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 			@help.click { "todo ;) " }
 		end #title flow
 		
+		# progress bar
+		flow do
+			$progress = progress width: 600
+			$progress.fraction = 0.0
+			$progress_info = para "ready", size: 9
+		end
+
 		# list stack
 		$list_stack = stack width: 300
 
