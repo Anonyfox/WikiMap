@@ -46,7 +46,7 @@ module WikiClient
 			graph.add_edge phrase, link
 		end
 		
-		graph.output("tmp/my_graph.png", "png", "neato")
+		graph.output "tmp/my_graph.png", "png", "circo", #["-n 1"]
 	end
 
 private

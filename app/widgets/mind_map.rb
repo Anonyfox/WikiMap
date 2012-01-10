@@ -5,7 +5,7 @@ class Shoes::MindMap < Shoes::Widget
 		@str = str || ""
 		@main = flow width: 500 do
 			border black
-			para "Empty"
+			para str
 		end
 	end
 
