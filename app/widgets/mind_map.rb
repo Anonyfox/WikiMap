@@ -10,7 +10,7 @@ class Shoes::MindMap < Shoes::Widget
 
 	def waitscreen
 		@main.clear {
-			image @wait_path, width: 690, height: 650
+			image @wait_path, width: 600, height: 600
 		}
 	end
 
