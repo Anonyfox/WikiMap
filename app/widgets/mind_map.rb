@@ -3,14 +3,16 @@
 class Shoes::MindMap < Shoes::Widget
 	def initialize str=nil
 		@str = str || ""
-		@main = flow width: 500
-		update
+		@main = flow width: 500 do
+			border black
+			para str
+		end
 	end
 
-	def update str=nil
+	def update
 		@main.clear {
 			border black
-			para (str || @str).to_s
+			image "tmp/my_graph.png"
 		}
 	end
 end

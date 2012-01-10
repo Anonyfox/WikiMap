@@ -4,10 +4,10 @@ Shoes.setup do
 	gem 'graph'
 end
 
-require './app/lib/graph-viz-simple'
 require './app/lib/wiki_client'
 
 Shoes.app title: "WikiMap", width: 820 do
+
 	require './app/widgets/item_url'
 	require './app/widgets/mind_map'
 
