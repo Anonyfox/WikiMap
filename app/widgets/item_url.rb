@@ -9,10 +9,20 @@ class Shoes::ItemUrl < Shoes::Widget
 		@main.hover { draw_hovered }
 		@main.leave { draw_normal }
 		@main.click {
-			answer = WikiClient.get @name
-			# Create Output Picture
-			WikiClient.output @name, answer
-			$mindmap.update
+			#Thread.new {
+				$mindmap.waitscreen
+				$clicked = @name
+				$answer = WikiClient.get @name
+				if $answer.size < 150
+					# Create Output Picture
+					WikiClient.output @name, $answer, $img_counter
+					$mindmap.update
+					$picture_created ||= true
+					$img_counter += 1
+				else
+					$ERROR_TOO_MANY.call
+				end
+			#}
 		}
 	end
 

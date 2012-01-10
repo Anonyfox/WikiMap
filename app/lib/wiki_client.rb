@@ -31,22 +31,35 @@ module WikiClient
 		response_links JSON(h)
 	end
 
-	def self.output phrase, links=[]
+	def self.output phrase, links=[], img_counter=0, destination=nil
+		destination ||= "tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
-		graph.node_attributes
-		graph.edge_attributes = {"arrowhead" => "diamond"}
+		#graph.graph_attributes = {"smoothing" => "true"}
+		graph.edge_attributes = {"arrowhead" => "vee"}
+
+		# normalize phrase
+		phrase.gsub!(/(\w)\W(\w)/){ "#{$1}_#{$2}" }
+		phrase.gsub!(/\A\s*/, '')
+		phrase.gsub!(/\s*\z/, '')
 
 		# Add root node
 		graph.add_node phrase
-		
-		links.each do |link| 
+		links.delete phrase # no self links
+
+		links.uniq.each do |link|
+			link.gsub!(/\W/, '_')
+			require 'pp'
+			pp link
 			# Add nodes
-			graph.add_node link
+			graph.add_node link.force_encoding("UTF-8")
 			# Add edges
-			graph.add_edge phrase, link
+			graph.add_edge phrase.force_encoding("UTF-8"), link.force_encoding("UTF-8")
 		end
 		
-		graph.output "tmp/my_graph.png", "png", "circo", #["-n 1"]
+		mode = links.size > 10 ? "fdp" : "dot"
+		#mode = "fdp" if links.size > 50 #performace issue
+
+		graph.output destination, "png", mode#, #["-n 1"]
 	end
 
 private

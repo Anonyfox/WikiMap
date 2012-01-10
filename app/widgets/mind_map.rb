@@ -1,18 +1,22 @@
 #encoding: UTF-8
 
 class Shoes::MindMap < Shoes::Widget
-	def initialize str=nil
-		@str = str || ""
-		@main = flow width: 500 do
-			border black
-			para str
-		end
+	def initialize path=nil
+		@wait_path = "./app/gfx/wait.png"
+		@pic = path || @wait_path
+		@main = flow width: 695
+		waitscreen
+	end
+
+	def waitscreen
+		@main.clear {
+			image @wait_path, width: 690, height: 650
+		}
 	end
 
 	def update
 		@main.clear {
-			border black
-			image "tmp/my_graph.png"
+			image "./tmp/my_graph_#{$img_counter}.png", height: 650, width: 690
 		}
 	end
 end
