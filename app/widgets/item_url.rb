@@ -9,7 +9,6 @@ class Shoes::ItemUrl < Shoes::Widget
 		@main.hover { draw_hovered }
 		@main.leave { draw_normal }
 		@main.click { 
-			debug @name
 			$update_state.call @name
 		}
 	end
