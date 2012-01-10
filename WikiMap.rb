@@ -12,6 +12,11 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 	require './app/widgets/item_url'
 	require './app/widgets/mind_map'
 
+	# Initialize
+	require "./app/lib/init"
+
+	Init.on_start
+
 	# some simple global vars
 	$picture_created = false
 	$choices = nil
