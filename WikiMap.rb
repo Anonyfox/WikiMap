@@ -8,59 +8,16 @@ require 'fileutils'
 require './app/lib/wiki_client'
 
 Shoes.app title: "WikiMap", width: 1000, height: 700 do
+	$app = self
 
 	require './app/widgets/item_url'
 	require './app/widgets/mind_map'
 
 	# Initialize
 	require "./app/lib/init"
+	Init.on_startup(self)
 
-	Init.on_start
-
-	# some simple global vars
-	$picture_created = false
-	$choices = nil
-	$clicked = nil
-	$answer = nil
-	$last_choices = []
-	$img_counter = 0
-	$ERROR_TOO_MANY = Proc.new { 
-		alert "sorry, too many items! (#{$answer.size})" 
-	}
-
-	# standard routines
-	$redraw_options = Proc.new {|list=nil|
-		$list_stack.clear {
-			if list
-				$choices = list
-		  else
-				$choices = WikiClient.ask @search.text
-			end
-			$choices.each {|name| item_url name }
-		}
-	}
-	$update_state = Proc.new {|name|
-		Thread.new {
-			$update_progress.call 'looking...', 0.2
-			$mindmap.waitscreen
-			$clicked = name
-			$last_choices << $clicked.dup
-			$answer = WikiClient.get name
-			$update_progress.call 'redraw options list...', 0.4
-			$redraw_options.call $anwer
-			$update_progress.call 'rendering mindmap...', 0.6
-			WikiClient.output name, $answer, $img_counter
-			$update_progress.call 'cleaning up...', 0.8
-			$mindmap.update
-			$picture_created ||= true
-			$img_counter += 1
-			$update_progress.call 'ready!', 1.0
-		}
-	}
-	$update_progress = Proc.new {|message, value|
-		$progress.fraction = value
-		$progress_info.text = message
-	}
+	
 
 	flow do
 
@@ -69,20 +26,14 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 			@back = button "<<"
 			@back.click {
 				unless $last_choices.empty?
-					@search.text = $last_choices.pop
+					$search.text = $last_choices.pop
 					redraw_options
 				end
 			}
-			@search = edit_line width: 300
+			$search = edit_line width: 300
 			# do search button
 			@go = button "search!"
-			@go.click{ 
-				#$list_stack.clear {
-				#	$choices = WikiClient.ask @search.text
-				#	$choices.each {|name| item_url name }
-				#}
-				$redraw_options.call
-			}
+			@go.click{ $redraw_options.call }
 			# random search button
 			@random = button "random!"
 			@random.click { alert "not yet implemented!" }
