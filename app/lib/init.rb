@@ -10,7 +10,7 @@ module Init
 			FileUtils.mkdir "./tmp" unless Dir.exists? "./tmp"
 
 			# initialize the database
-			$db = DataBase.new
+			$db = DataBase.new.db
 
 			# some simple global vars
 			$picture_created = false
@@ -42,7 +42,8 @@ module Init
 					$redraw_options.call $answer
 					$update_progress.call 'rendering mindmap...', 0.2
 					Thread.new {
-						pc = PageController.new phrase: $clicked, links: $answer
+						#pc = PageController.new phrase: $clicked, links: $answer
+						$db[$clicked] = $answer
 						$update_progress.call 'ready!', 0.2
 					}
 					WikiClient.output name, $answer, $img_counter# rescue alert "fail"
