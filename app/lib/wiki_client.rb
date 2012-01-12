@@ -38,12 +38,14 @@ module WikiClient
 		
 		# normalize phrase
 		rphrase = phrase.gsub(/\W/, '_')
+		rphrase.gsub!(/\A(\w)/) { "_#{$1}" }
 
 		# Add nodes and edges
 		graph.add_node rphrase, {"label" => phrase} #root
 		links.delete rphrase # no self links
 		links.uniq.each do |link|
 			rlink = link.gsub(/\W/, '_')
+			rlink.gsub!(/\A(\w)/) { "_#{$1}" }
 			# Add nodes
 			graph.add_node rlink, {"label" => link}
 			graph.add_edge rphrase, rlink
