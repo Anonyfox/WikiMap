@@ -29,6 +29,7 @@ class Shoes::MindMap < Shoes::Widget
 			background white .. plum, angle: 90
 			border black
 			image "./tmp/my_graph_#{@image_counter}.png", height: 600, width: 600
+			debug "img_c: #{image_counter}"
 			@image_counter += 1
 		}
 	end
