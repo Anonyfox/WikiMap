@@ -12,7 +12,7 @@ require './app/lib/wiki_client'
 #require './app/db/data_base'
 require './app/db/kioku_client'
 
-Shoes.app title: "WikiMap", width: 1000, height: 700 do
+Shoes.app title: "WikiMap", width: 1000, height: 750 do
 	require './app/widgets/item_url'
 	require './app/widgets/mind_map'
 
@@ -67,7 +67,7 @@ Shoes.app title: "WikiMap", width: 1000, height: 700 do
 		end
 
 		# list stack
-		$list_stack = stack width: 300
+		$list_stack = stack width: 300, height: 600, scroll: true
 
 		# mindmap picture
 		stack width: 700 do
