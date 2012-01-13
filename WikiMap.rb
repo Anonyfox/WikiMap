@@ -1,83 +1,41 @@
 #encoding: utf-8
 
-Shoes.setup do
-	#gem 'graph'
+Shoes.setup do 
 	gem 'kioku'
+	gem 'net-ping'
 end
 
-require 'fileutils'
-require 'kioku'
-require './app/lib/wiki_client'
-#require './app/controllers/page_controller'
-#require './app/db/data_base'
-require './app/db/kioku_client'
+require './app/lib/data_controller'
 
-Shoes.app title: "WikiMap", width: 1000, height: 700 do
-	require './app/widgets/item_url'
-	require './app/widgets/mind_map'
+Shoes.app title:"WikiMap", height:750, width: 1000 do
+	stack do
+		# require the widget-files
+		Dir.glob(File.dirname(__FILE__) + '/app/widgets/*', &method(:require) )
 
-	# Initialize
-	require "./app/lib/init"
-	Init.on_startup(self)
+		# prepare the data and internetz stuff
+		$DATA = DataController.new
+		$SEARCHED_CURRENT = nil
+		$SEARCHED = []
+		$IS_WORKING = false
 
-	flow do
-
-		# title flow
-		flow do
-			@back = button "<<"
-			@back.click {
-				unless $last_choices.empty?
-					$search.text = $last_choices.pop
-					redraw_options
-				end
-			}
-			$search = edit_line width: 300
-			# do search button
-			@go = button "search!"
-			@go.click{ $redraw_options.call }
-			# random search button
-			@random = button "random!"
-			@random.click { alert "not yet implemented!" }
-			# export button
-			@export = button "export img"
-			@export.click {
-				if $picture_created
-					destination = ask_save_file
-					if destination && destination != ""
-						WikiClient.output $clicked, $answer, $img_counter, destination if destination
-						alert "export successful to #{destination}"
-					end
-				else
-					alert "no mindmap available!"
-				end
-			}
-			# options menu button
-			@options = button "options"
-			@options.click { alert "todo ;) " }
-			# help menu button
-			@help = button "help"
-			@help.click { "todo ;) " }
-		end #title flow
-		
-		# progress bar
-		flow do
-			$progress = progress width: 600
-			$progress.fraction = 0.0
-			$progress_info = para "ready", size: 9
+		# initialize the ui-elements
+		stack do
+			background darkslateblue .. cornflowerblue
+			$TITLE_BAR = title_bar
+			$STATUS_BAR = status_bar
 		end
-
-		# list stack
-		$list_stack = stack width: 300
-
-		# mindmap picture
-		stack width: 700 do
-			$mindmap = mind_map
+		flow width: 1000 do
+			stack(width:300) { 
+				background antiquewhite .. white, angle: 90
+				$OPTIONS_LIST = options_list ["testitem", "another one"] 
+			}
+			stack(width:660) { $MIND_MAP = mind_map }
 		end
-
 	end
 
+	# define some hotkeys
 	keypress do |k|
+		$TITLE_BAR.lookup_text if k == "\n"
+	end # hotkeys
 
-	end
-	
 end

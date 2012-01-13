@@ -31,10 +31,11 @@ module WikiClient
 		response_links JSON(h)
 	end
 
-	def self.output phrase, links=[], img_counter=0, destination=nil
+	def self.output phrase, links=[], img_counter=0, destination=nil, thumbnail=true
 		destination ||= "tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
 		graph.edge_attributes = {"arrowhead" => "vee"}
+		graph.graph_attributes = {"bgcolor"=>"transparent"}
 		
 		# normalize phrase
 		rphrase = phrase.gsub(/\W/, '_')
@@ -47,8 +48,16 @@ module WikiClient
 			rlink = link.gsub(/\W/, '_')
 			rlink.gsub!(/\A(\w)/) { "_#{$1}" }
 			# Add nodes
-			graph.add_node rlink, {"label" => link}
-			graph.add_edge rphrase, rlink
+			begin
+				graph.add_node rlink, {"label" => link}
+				graph.add_edge rphrase, rlink
+			rescue => e
+				debug e
+			end
+		end
+
+		if thumbnail
+			graph.graph_attributes= {"size" => 6.25}
 		end
 
 		graph.output destination, "png", "fdp"

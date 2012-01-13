@@ -1,22 +1,35 @@
 #encoding: UTF-8
 
 class Shoes::MindMap < Shoes::Widget
+	attr_reader :image_counter
+
 	def initialize path=nil
-		@wait_path = "./app/gfx/wait.png"
-		@pic = path || @wait_path
-		@main = flow width: 695
-		waitscreen
+		@welcome = "./app/gfx/welcome_screen.png"
+		@wait = "./app/gfx/wait_screen.png"
+		@pic = path || @welcome
+		@main = flow width: 600, height: 600
+		@image_counter = 0
+		welcome_screen
 	end
 
-	def waitscreen
+	def welcome_screen
 		@main.clear {
-			image @wait_path, width: 600, height: 600
+			image @welcome, width: 600, height: 600
+		}
+	end
+
+	def wait_screen
+		@main.clear {
+			image @wait, width: 600, height: 600
 		}
 	end
 
 	def update
 		@main.clear {
-			image "./tmp/my_graph_#{$img_counter}.png", height: 650, width: 690
+			background white .. plum, angle: 90
+			border black
+			image "./tmp/my_graph_#{@image_counter}.png", height: 600, width: 600
+			@image_counter += 1
 		}
 	end
 end
