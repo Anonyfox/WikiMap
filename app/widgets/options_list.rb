@@ -24,7 +24,7 @@ class Shoes::OptionsList < Shoes::Widget
 	# this mighty method handles all the controls and stuff to proceed the 
 	# chosen link
 	def render_and_save name
-		Thread.new {
+		#Thread.new {
 			return false if $IS_WORKING
 			$STATUS_BAR.write "lookup wikipedia..."
 			$IS_WORKING = true
@@ -57,6 +57,6 @@ class Shoes::OptionsList < Shoes::Widget
 				$OPTIONS_LIST.draw_options []
 			end
 			$IS_WORKING = false
-		}
+		#}
 	end
 end

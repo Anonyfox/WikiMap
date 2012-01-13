@@ -48,8 +48,12 @@ module WikiClient
 			rlink = link.gsub(/\W/, '_')
 			rlink.gsub!(/\A(\w)/) { "_#{$1}" }
 			# Add nodes
-			graph.add_node rlink, {"label" => link}
-			graph.add_edge rphrase, rlink
+			begin
+				graph.add_node rlink, {"label" => link}
+				graph.add_edge rphrase, rlink
+			rescue => e
+				debug e
+			end
 		end
 
 		if thumbnail
