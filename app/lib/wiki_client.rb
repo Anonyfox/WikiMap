@@ -34,7 +34,7 @@ module WikiClient
 	def self.output phrase, links=[], img_counter=0, destination=nil
 		destination ||= "tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
-		#graph.graph_attributes = {"smoothing" => "true"}
+		graph.graph_attributes = {"clusterrank" => "local"}
 		graph.edge_attributes = {"arrowhead" => "vee"}
 
 		# normalize phrase
