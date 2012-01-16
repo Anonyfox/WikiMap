@@ -7,6 +7,10 @@ module Init
 		app.instance_eval do 
 			# clear old cache
 			FileUtils.rm Dir.glob("./tmp/*")
+			FileUtils.mkdir "./tmp" unless Dir.exists? "./tmp"
+
+			# initialize the database
+			$db = DataBase.new.db
 
 			# some simple global vars
 			$picture_created = false
@@ -15,9 +19,6 @@ module Init
 			$answer = nil
 			$last_choices = []
 			$img_counter = 0
-			$ERROR_TOO_MANY = Proc.new { 
-				alert "sorry, too many items! (#{$answer.size})" 
-			}
 
 			# standard routines
 			$redraw_options = Proc.new {|list=nil|
@@ -31,26 +32,30 @@ module Init
 				}
 			}
 			$update_state = Proc.new {|name|
-				#Thread.new {
-					$update_progress.call 'looking...', 0.2
+				Thread.new {
+					$update_progress.call 'looking...', 0.1
 					$mindmap.waitscreen
 					$clicked = name
 					$last_choices << $clicked.dup
 					$answer = WikiClient.get name
-					$update_progress.call 'redraw options list...', 0.4
-					$redraw_options.call $anwer
-					$update_progress.call 'rendering mindmap...', 0.6
-					debug "before Client"
+					$update_progress.call 'redraw options list...', 0.1
+					$redraw_options.call $answer
+					$update_progress.call 'rendering mindmap...', 0.2
+					Thread.new {
+						#pc = PageController.new phrase: $clicked, links: $answer
+						$db[$clicked] = $answer
+						$update_progress.call 'ready!', 0.2
+					}
 					WikiClient.output name, $answer, $img_counter# rescue alert "fail"
-					$update_progress.call 'cleaning up...', 0.8
+					$update_progress.call 'cleaning up...', 0.2
 					$mindmap.update
 					$picture_created ||= true
 					$img_counter += 1
-					$update_progress.call 'ready!', 1.0
-				#}
+					$update_progress.call 'ready!', 0.2
+				}
 			}
 			$update_progress = Proc.new {|message, value|
-				$progress.fraction = value
+				$progress.fraction += value
 				$progress_info.text = message
 			}
 		end

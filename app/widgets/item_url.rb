@@ -2,28 +2,25 @@
 
 class Shoes::ItemUrl < Shoes::Widget
 
-	def initialize name
+	def initialize name, &block
 		@name = name
 		@main = flow width: 298, margin: 1
 		draw_normal
 		@main.hover { draw_hovered }
 		@main.leave { draw_normal }
-		@main.click { 
-			debug @name
-			$update_state.call @name
-		}
+		@main.click { block.call }
 	end
 
 	def draw_normal
 		@main.clear {
-			para @name, size: 10, leading: 1
+			para @name, size: 10, leading: 1, margin: 2, margin_left: 10
 		}
 	end
 
 	def draw_hovered
 		@main.clear {
-			background cornflowerblue, curve: 5
-			para @name, size: 10, leading: 1
+			background rgb(135,206,250,0.2), curve: 3
+			para @name, size: 10, leading: 1, margin: 2, margin_left: 10, underline: 'single'
 		}
 	end
 end

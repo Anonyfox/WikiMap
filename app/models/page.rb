@@ -1,5 +1,5 @@
 require 'active_record'
-require_relative '../db/testbase.rb' #database settings
+#require_relative '../db/testbase.rb' #database settings
 
 # This Model-Class is widely empty, because the mighty
 # activerecord library maps this class onto a database-table.

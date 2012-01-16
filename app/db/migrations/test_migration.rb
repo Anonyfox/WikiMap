@@ -1,5 +1,4 @@
-require 'active_record'
-require_relative '../testbase.rb'
+# encoding: utf-8
 
 # This class contains the table description inside the 
 # database. 
@@ -20,8 +19,3 @@ class AddPageTable < ActiveRecord::Migration
 		drop_table :pages
 	end
 end
-
-#=begin
-AddPageTable.migrate :down
-AddPageTable.migrate :up
-#=end
