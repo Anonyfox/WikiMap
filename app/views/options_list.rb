@@ -23,62 +23,62 @@ class Shoes::OptionsList < Shoes::Widget
 
 	def render_and_save name, thumbnail=nil
 		Thread.new {
-			return false if $IS_WORKING
-			$STATUS_BAR.write "lookup wikipedia..."
+			return false if $wikimap.is_working
+			$wikimap.status_bar.write "lookup wikipedia..."
 			# Lock User Interactions
-			$IS_WORKING = true
+			$wikimap.is_working = true
 			# Check if Back-Button is pressed
-			unless $BACK
+			unless $wikimap.is_back_search
 				# Push the last search and thumbnail to stack
-				$SEARCHED << $SEARCHED_LAST if $SEARCHED_LAST != {}
+				$wikimap.searched << $wikimap.searched_last if $wikimap.searched_last != {}
 			end
-			$BACK = false
+			$wikimap.is_back_search = false
 			# if thumbnail not given => create path
 			unless thumbnail
-				$RESSOURCE_THUMBNAIL_PATH[1] = $IMAGE_COUNTER
-				$CURRENT_MIND_MAP = $RESSOURCE_THUMBNAIL_PATH.join("")
+				$wikimap.ressource_thumbnail_path[1] = $wikimap.image_counter
+				$wikimap.current_mind_map = $wikimap.ressource_thumbnail_path.join("")
 			else
-				$CURRENT_MIND_MAP = thumbnail
+				$wikimap.current_mind_map = thumbnail
 			end
 			# Write current search and Thumbnail for next search to variable
-			$SEARCHED_LAST = { phrase: name, thumbnail: $CURRENT_MIND_MAP }
+			$wikimap.searched_last = { phrase: name, thumbnail: $wikimap.current_mind_map }
 			# Write the current phrase to search-edit-line
-			$TITLE_BAR.write name
+			$wikimap.title_bar.write name
 			# Draw wait Screen
-			$MIND_MAP.draw_wait_screen
-			$STATUS_BAR.set 0.1
-			response = $CONTROLLER.look_for name
+			$wikimap.mind_map.draw_wait_screen
+			$wikimap.status_bar.set 0.1
+			response = $wikimap.controller.look_for name
 			if response
 				# Print Link List
-				$STATUS_BAR.write "interpreting responses..."
-				$STATUS_BAR.set 0.3
-				$OPTIONS_LIST.draw_normal response
+				$wikimap.status_bar.write "interpreting responses..."
+				$wikimap.status_bar.set 0.3
+				$wikimap.options_list.draw_normal response
 				
 				# Create Thumbnail
-				$STATUS_BAR.write "rendering mindmap..."
-				$STATUS_BAR.set 0.6
+				$wikimap.status_bar.write "rendering mindmap..."
+				$wikimap.status_bar.set 0.6
 				unless thumbnail
-					$IMAGE_COUNTER += 1
-					$CONTROLLER.render name, response, $CURRENT_MIND_MAP
+					$wikimap.image_counter += 1
+					$wikimap.controller.render name, response, $wikimap.current_mind_map
 				end
 
 				# Draw Mindmap
-				$STATUS_BAR.write "loading new mindmap..."
-				$STATUS_BAR.set 0.9
-				$MIND_MAP.draw_normal $CURRENT_MIND_MAP
+				$wikimap.status_bar.write "loading new mindmap..."
+				$wikimap.status_bar.set 0.9
+				$wikimap.mind_map.draw_normal $wikimap.current_mind_map
 				
 				# Successful
-				$STATUS_BAR.write "ready!"
-				$STATUS_BAR.set 1.0
+				$wikimap.status_bar.write "ready!"
+				$wikimap.status_bar.set 1.0
 			else #nothing found
-				$STATUS_BAR.write "nothing found. try something else!"
-				$STATUS_BAR.set 1.0
-				$MIND_MAP.draw_error_screen
-				$OPTIONS_LIST.draw_normal []
+				$wikimap.status_bar.write "nothing found. try something else!"
+				$wikimap.status_bar.set 1.0
+				$wikimap.mind_map.draw_error_screen
+				$wikimap.options_list.draw_normal []
 			end
 
 			# Unlock Userinteractions
-			$IS_WORKING = false
+			$wikimap.is_working = false
 		}
 	end
 end
