@@ -13,18 +13,18 @@ class Shoes::TitleBar < Shoes::Widget
 		@main.clear do
 			# Klick-Event des "Zurück"-Buttons
 			button("<<") do
-				if $wikimap.searched == []
+				if $app.searched == []
 					@search_text = ""
 				else
-					debug $wikimap.searched
-					hash = $wikimap.searched.pop
+					debug $app.searched
+					hash = $app.searched.pop
 					@search_text = hash[:phrase]
 					@line.text = @search_text
-					$wikimap.is_back_search = true
-					if hash[:thumbnail] == $wikimap.mind_map.welcome_image
+					$app.is_back_search = true
+					if hash[:thumbnail] == $widgets.mind_map.welcome_image
 						process_search
 					else
-						$wikimap.options_list.render_and_save @search_text, hash[:thumbnail]
+						$widgets.options_list.render_and_save @search_text, hash[:thumbnail]
 					end
 				end
 			end
@@ -52,7 +52,7 @@ class Shoes::TitleBar < Shoes::Widget
 			end
 
 			button("Show in Browser") do
-				visit "http://de.wikipedia.org/wiki/#{URI.encode($wikimap.searched_last)}"
+				visit "http://de.wikipedia.org/wiki/#{URI.encode($app.searched_last)}"
 			end
 
 			# Klick-Event des Aboutbuttons
@@ -69,23 +69,23 @@ class Shoes::TitleBar < Shoes::Widget
 
 	# Search for a given string
 	def lookup_text
-		$wikimap.controller.search_matching_links_to @search_text
+		$app.controller.search_matching_links_to @search_text
 	end
 
 	# print search_results to optionlist
 	def draw_search_resuts items=[]
-		$wikimap.options_list.draw_normal items
-		$wikimap.mind_map.draw_welcome_screen
+		$widgets.options_list.draw_normal items
+		$widgets.mind_map.draw_welcome_screen
 	end
 
 	def export_mindmap
-		return false if $wikimap.searched_last == {}
-		return false if $wikimap.searched_last[:thumbnail] == $wikimap.mind_map.welcome_image
+		return false if $app.searched_last == {}
+		return false if $app.searched_last[:thumbnail] == $widgets.mind_map.welcome_image
 		target_file = ask_save_file
 		return false unless target_file && target_file != ""
-		$wikimap.controller.render(
-			$wikimap.searched_last[:phrase],
-			$wikimap.controller.look_for($wikimap.searched_last[:phrase]),
+		$app.controller.render(
+			$app.searched_last[:phrase],
+			$app.controller.look_for($app.searched_last[:phrase]),
 			target_file,
 			false
 		)
@@ -98,12 +98,12 @@ class Shoes::TitleBar < Shoes::Widget
 
 	def save_last_search
 		# Check if Back-Button is pressed
-		unless $wikimap.is_back_search
+		unless $app.is_back_search
 			# Push the last search and thumbnail to stack
-			$wikimap.searched << $wikimap.searched_last if $wikimap.searched_last != {}	
+			$app.searched << $app.searched_last if $app.searched_last != {}	
 		end
-		$wikimap.is_back_search = false
-		$wikimap.searched_last = { phrase: @search_text, thumbnail: $wikimap.mind_map.welcome_image }
+		$app.is_back_search = false
+		$app.searched_last = { phrase: @search_text, thumbnail: $widgets.mind_map.welcome_image }
 	end
 
 	def write text
