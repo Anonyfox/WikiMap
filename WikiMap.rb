@@ -5,12 +5,12 @@ Shoes.setup do
 	gem 'net-ping'
 end
 
-require './app/lib/data_controller'
+require './app/controllers/data_controller'
 
 Shoes.app title:"WikiMap", height:750, width: 1000 do
 	stack do
 		# require the widget-files
-		Dir.glob(File.dirname(__FILE__) + '/app/widgets/*', &method(:require) )
+		Dir.glob(File.dirname(__FILE__) + '/app/views/*', &method(:require) )
 
 		# prepare the data and internetz stuff
 		$DATA = DataController.new
