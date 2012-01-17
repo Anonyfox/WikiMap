@@ -3,14 +3,14 @@
 class Shoes::StatusBar < Shoes::Widget
 	attr_reader :prog, :msg
 
-	def initialize start_text=nil
+	def initialize start_text=""
 		@main = flow width: 980, margin_left: 10, margin_top: 5
 		@prog = 0.0
-		@msg = start_text || "Welcome to Wikimap!"
-		draw
+		@msg = start_text
+		draw_normal
 	end
 
-	def draw
+	def draw_normal
 		@main.clear do
 			#@internet_status = internet_status
 			#$DATA.internet_available? ? @internet_status.switch_on : @internet_status.switch_off
@@ -19,7 +19,8 @@ class Shoes::StatusBar < Shoes::Widget
 		end #main.clear
 	end
 
-	# progress.fraction += number, number must be between 0.0 and 1.0
+	# Inkrementiert den Fortschritt der Progressbar um eine Größe number
+	# number must be between 0.0 and 1.0
 	def inc number
 		@prog += number
 		@progress_bar.fraction = @prog

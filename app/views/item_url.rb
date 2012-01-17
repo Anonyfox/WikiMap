@@ -5,10 +5,10 @@ class Shoes::ItemUrl < Shoes::Widget
 	def initialize name, &block
 		@name = name
 		@main = flow width: 298, margin: 1
-		draw_normal
 		@main.hover { draw_hovered }
 		@main.leave { draw_normal }
 		@main.click { block.call }
+		draw_normal
 	end
 
 	def draw_normal
