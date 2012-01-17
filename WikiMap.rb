@@ -5,24 +5,27 @@ Shoes.setup do
 	gem 'net-ping'
 end
 
-require './app/lib/data_controller'
+require './app/controllers/data_controller'
 
 Shoes.app title:"WikiMap", height:750, width: 1000 do
 	stack do
 		# require the widget-files
-		Dir.glob(File.dirname(__FILE__) + '/app/widgets/*', &method(:require) )
+		Dir.glob(File.dirname(__FILE__) + '/app/views/*', &method(:require) )
 
 		# prepare the data and internetz stuff
-		$DATA = DataController.new
-		$SEARCHED_CURRENT = nil
+		$CONTROLLER = DataController.new
+		$CURRENT_SEARCH = nil 	# Aktueller Suchstring
 		$SEARCHED = []
 		$IS_WORKING = false
+		$IMAGE_COUNTER = 0
+		$RESSOURCE_PATH = "./tmp/" # TODO: Replacement Token for Image Counter
+		$CURRENT_MIND_MAP 		# Aktueller Image-Path der Mindmap
 
 		# initialize the ui-elements
 		stack do
 			background darkslateblue .. cornflowerblue
 			$TITLE_BAR = title_bar
-			$STATUS_BAR = status_bar
+			$STATUS_BAR = status_bar "Welcome to Wikimap!"
 		end
 		flow width: 1000 do
 			stack(width:300) { 

@@ -7,7 +7,7 @@
 require 'json'
 require 'open-uri'
 require 'uri'
-require_relative '../lib/graph-viz-simple'
+require_relative 'graph-viz-simple'
 
 # This standalone Module builds the correct URLs for requesting
 # wikipedia, and implements the full http request to get the 
@@ -31,7 +31,7 @@ module WikiClient
 		response_links JSON(h)
 	end
 
-	def self.output phrase, links=[], img_counter=0, destination=nil, thumbnail=true
+	def self.output phrase, links=[], destination=nil, img_counter=0, thumbnail=true
 		destination ||= "./tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
 
