@@ -24,7 +24,7 @@ class Shoes::TitleBar < Shoes::Widget
 			end
 
 			@line = edit_line width: 300, text: @search_text
-			@line.focus
+
 			# Keypress-Event der Suchzeile
 			@line.change do |key|
 				@search_text = @line.text

@@ -14,7 +14,7 @@ class Shoes::OptionsList < Shoes::Widget
 	def draw_normal list=[]
 		@list = list
 		@main.clear do
-			caption "Choose: ", align: "center"
+			caption "Choose: (#{list.length})", align: "center"
 			@list.each do |name| 
 				item_url(name){ render_and_save name }
 			end
