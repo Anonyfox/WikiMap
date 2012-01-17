@@ -21,7 +21,7 @@ class DataController
 		if internet_available?
 			answer = WikiClient.ask name
 		else
-			# TODO: Regular Expression auf den Key-Value-Store
+			answer = @db.search name
 		end
 		answer || []
 	end
