@@ -11,10 +11,11 @@ Shoes.app title:"WikiMap", height:750, width: 1000 do
 	stack do
 		# require the widget-files
 		Dir.glob(File.dirname(__FILE__) + '/app/views/*', &method(:require) )
+		require "uri"
 
 		# prepare the data and internetz stuff
 		$CONTROLLER = DataController.new
-		$CURRENT_SEARCH = nil 	# Aktueller Suchstring
+		$SEARCHED_LAST = {} 	# Aktueller Suchstring
 		$SEARCHED = []
 		$IS_WORKING = false
 		$IMAGE_COUNTER = 0
@@ -40,7 +41,6 @@ Shoes.app title:"WikiMap", height:750, width: 1000 do
 
 	# define some hotkeys
 	keypress do |k|
-		$TITLE_BAR.lookup_text if k == "\n"
+		$TITLE_BAR.draw_option_list$TITLE_BAR.lookup_text if k == "\n"
 	end # hotkeys
-
 end

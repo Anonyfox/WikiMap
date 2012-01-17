@@ -28,7 +28,12 @@ module WikiClient
 	def self.get query_str
 		query_url = build_query_url query_str
 		h = open(query_url).read
-		response_links JSON(h)
+		self.response_links JSON(h)
+	end
+
+	def self.random_pages
+		h = open("http://de.wikipedia.org/w/api.php?action=query&format=json&list=random&rnlimit=10").read
+		self.random_links JSON(h)
 	end
 
 	def self.output phrase, links=[], destination=nil, thumbnail=true
@@ -105,7 +110,15 @@ private
 				links.push hash["title"]
 			end
 		end
-		return links
+		links
+	end
+
+	def self.random_links json
+		links = []
+		json["query"]["random"].each do |value|
+			links.push value["title"]
+		end
+		links
 	end
 
 end

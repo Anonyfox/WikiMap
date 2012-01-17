@@ -14,26 +14,31 @@ class Shoes::TitleBar < Shoes::Widget
 			# Klick-Event des "Zurück"-Buttons
 			button("<<") do
 				if $SEARCHED == []
-					@search_text = ""
+					@search_text = {}
 				else
-					@search_text = $SEARCHED.pop
+					hash = $SEARCHED.pop
+					@search_text = hash[:phrase]
 					@line.text = @search_text
-					lookup_text
-
+					$OPTIONS_LIST.render_and_save @search_text, hash[:thumbnail]
 				end
 			end
 
 			@line = edit_line width: 300, text: @search_text
 
 			# Keypress-Event der Suchzeile
-			@line.change do |key|
+			@line.change do
 				@search_text = @line.text
 			end
 
 			# Klick-Event des Suchbuttons
 			button("search!") do
-				lookup_text
+				draw_option_list lookup_text
 				$SEARCHED.push @search_text
+			end
+			
+			# Klick-Event des Random-Button
+			button("Random") do
+				draw_option_list WikiClient.random_pages
 			end
 
 			# Klick-Event des Exportbuttons
@@ -46,6 +51,10 @@ class Shoes::TitleBar < Shoes::Widget
 					target_file,
 					false
 				)
+			end
+
+			button("Show in Browser") do
+				visit "http://de.wikipedia.org/wiki/#{URI.encode($SEARCHED_LAST)}"
 			end
 
 			# Klick-Event des Aboutbuttons
@@ -62,12 +71,12 @@ class Shoes::TitleBar < Shoes::Widget
 
 	# Sucht nach einem gegebenen Suchstring
 	def lookup_text
-		response = $CONTROLLER.search_matching_links_to @search_text
-		if response.length == 1
-			response = $CONTROLLER.look_for response[0]
-		end
-		$OPTIONS_LIST.draw_normal response
+		$CONTROLLER.search_matching_links_to @search_text
+	end
 
+	def draw_option_list items=[]
+		$OPTIONS_LIST.draw_normal items
+		$MIND_MAP.draw_welcome_screen
 	end
 
 	def write text
