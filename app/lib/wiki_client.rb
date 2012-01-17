@@ -32,7 +32,7 @@ module WikiClient
 	end
 
 	def self.output phrase, links=[], img_counter=0, destination=nil, thumbnail=true
-		destination ||= "tmp/my_graph_#{img_counter}.png"
+		destination ||= "./tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
 		graph.edge_attributes = {"arrowhead" => "vee"}
 		graph.graph_attributes = {"bgcolor"=>"transparent"}
