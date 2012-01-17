@@ -10,6 +10,7 @@ class DataController
 		@home = ENV['HOME']
 		@path = @home + "/.wikimap"
 		Dir.mkdir @path unless Dir.exists? @path
+		Dir.mkdir @path+"/tmp" unless Dir.exists? @path+"/tmp"
 		@name = @path + "/wikimap.db"
 		@db = Kioku.new @name
 	end
@@ -37,8 +38,8 @@ class DataController
 		answer || []
 	end
 
-	def render root, links, destination
-		WikiClient.output root, links, destination
+	def render root, links, destination, thumb=true
+		WikiClient.output root, links, destination, thumb
 	end
 
 	# simply checks if internet is available by pinging google.com

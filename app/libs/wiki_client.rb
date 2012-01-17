@@ -31,7 +31,7 @@ module WikiClient
 		response_links JSON(h)
 	end
 
-	def self.output phrase, links=[], destination=nil, img_counter=0, thumbnail=true
+	def self.output phrase, links=[], destination=nil, thumbnail=true
 		destination ||= "./tmp/my_graph_#{img_counter}.png"
 		graph = GraphvizSimple.new("MindMap")
 

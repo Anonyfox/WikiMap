@@ -18,7 +18,7 @@ Shoes.app title:"WikiMap", height:750, width: 1000 do
 		$SEARCHED = []
 		$IS_WORKING = false
 		$IMAGE_COUNTER = 0
-		$RESSOURCE_PATH = "./tmp/" # TODO: Replacement Token for Image Counter
+		$RESSOURCE_PATH = ENV['HOME']+"/.wikimap/tmp/" # TODO: Replacement Token for Image Counter
 		$CURRENT_MIND_MAP 		# Aktueller Image-Path der Mindmap
 
 		# initialize the ui-elements

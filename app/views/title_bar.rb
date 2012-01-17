@@ -37,10 +37,14 @@ class Shoes::TitleBar < Shoes::Widget
 
 			# Klick-Event des Exportbuttons
 			button("export mindmap") do
-			end
-
-			# Klick-Event des Helpbuttons
-			button "help" do
+				target_file = ask_save_file
+				return false unless target_file && target_file != ""
+				$CONTROLLER.render(
+					$SEARCHED_LAST,
+					$CONTROLLER.look_for($SEARCHED_LAST),
+					target_file,
+					false
+				)
 			end
 
 			# Klick-Event des Aboutbuttons
