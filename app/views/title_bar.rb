@@ -49,6 +49,12 @@ class Shoes::TitleBar < Shoes::Widget
 
 			# Klick-Event des Aboutbuttons
 			button "about" do
+				alert(
+					"WikiMap© Version 1.0\n\n" +
+					"Diese Software entstand in Zusammenarbeit von:\n" +
+					"Sebastian Braune, Francesco Möller, Maximilian Stroh, Markus Herklotz, Josua Koshwitz\n\n" + 
+					"Letztes Update: 17.01.2012"
+				)
 			end
 		end #main.clear
 	end
@@ -62,5 +68,9 @@ class Shoes::TitleBar < Shoes::Widget
 	def write text
 		@line.text = text
 		@search_text = text
+	end
+
+	def set_focus
+		@line.focus
 	end
 end
