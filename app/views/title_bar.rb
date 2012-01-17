@@ -19,6 +19,7 @@ class Shoes::TitleBar < Shoes::Widget
 					@search_text = $SEARCHED.pop
 					@line.text = @search_text
 					lookup_text
+
 				end
 			end
 
@@ -62,7 +63,11 @@ class Shoes::TitleBar < Shoes::Widget
 	# Sucht nach einem gegebenen Suchstring
 	def lookup_text
 		response = $CONTROLLER.search_matching_links_to @search_text
+		if response.length == 1
+			response = $CONTROLLER.look_for response[0]
+		end
 		$OPTIONS_LIST.draw_normal response
+
 	end
 
 	def write text
