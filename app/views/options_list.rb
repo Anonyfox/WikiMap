@@ -39,7 +39,9 @@ class Shoes::OptionsList < Shoes::Widget
 
 			$STATUS_BAR.write "rendering mindmap..."
 			$STATUS_BAR.set 0.6
-			$CURRENT_MIND_MAP = $RESSOURCE_PATH + "my_graph_#{$IMAGE_COUNTER}.png"
+			#Thumbnails
+			$RESSOURCE_THUMBNAIL_PATH[1] = $IMAGE_COUNTER
+			$CURRENT_MIND_MAP = $RESSOURCE_THUMBNAIL_PATH.join("")
 			$IMAGE_COUNTER += 1
 			$CONTROLLER.render name, response, $CURRENT_MIND_MAP
 
