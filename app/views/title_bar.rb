@@ -14,12 +14,18 @@ class Shoes::TitleBar < Shoes::Widget
 			# Klick-Event des "Zurück"-Buttons
 			button("<<") do
 				if $SEARCHED == []
-					@search_text = {}
+					@search_text = ""
 				else
+					debug $SEARCHED
 					hash = $SEARCHED.pop
 					@search_text = hash[:phrase]
 					@line.text = @search_text
-					$OPTIONS_LIST.render_and_save @search_text, hash[:thumbnail]
+					$BACK = true
+					if hash[:thumbnail] == $MIND_MAP.welcome_image
+						process_search
+					else
+						$OPTIONS_LIST.render_and_save @search_text, hash[:thumbnail]
+					end
 				end
 			end
 
@@ -32,25 +38,17 @@ class Shoes::TitleBar < Shoes::Widget
 
 			# Klick-Event des Suchbuttons
 			button("search!") do
-				draw_option_list lookup_text
-				$SEARCHED.push @search_text
+				process_search		
 			end
 			
 			# Klick-Event des Random-Button
 			button("Random") do
-				draw_option_list WikiClient.random_pages
+				draw_search_resuts WikiClient.random_pages
 			end
 
 			# Klick-Event des Exportbuttons
 			button("export mindmap") do
-				target_file = ask_save_file
-				return false unless target_file && target_file != ""
-				$CONTROLLER.render(
-					$SEARCHED_LAST,
-					$CONTROLLER.look_for($SEARCHED_LAST),
-					target_file,
-					false
-				)
+				export_mindmap
 			end
 
 			button("Show in Browser") do
@@ -69,14 +67,43 @@ class Shoes::TitleBar < Shoes::Widget
 		end #main.clear
 	end
 
-	# Sucht nach einem gegebenen Suchstring
+	# Search for a given string
 	def lookup_text
 		$CONTROLLER.search_matching_links_to @search_text
 	end
 
-	def draw_option_list items=[]
+	# print search_results to optionlist
+	def draw_search_resuts items=[]
 		$OPTIONS_LIST.draw_normal items
 		$MIND_MAP.draw_welcome_screen
+	end
+
+	def export_mindmap
+		return false if $SEARCHED_LAST == {}
+		return false if $SEARCHED_LAST[:thumbnail] == $MIND_MAP.welcome_image
+		target_file = ask_save_file
+		return false unless target_file && target_file != ""
+		$CONTROLLER.render(
+			$SEARCHED_LAST[:phrase],
+			$CONTROLLER.look_for($SEARCHED_LAST[:phrase]),
+			target_file,
+			false
+		)
+	end
+
+	def process_search
+		draw_search_resuts lookup_text
+		save_last_search
+	end
+
+	def save_last_search
+		# Check if Back-Button is pressed
+		unless $BACK
+			# Push the last search and thumbnail to stack
+			$SEARCHED << $SEARCHED_LAST if $SEARCHED_LAST != {}	
+		end
+		$BACK = false
+		$SEARCHED_LAST = { phrase: @search_text, thumbnail: $MIND_MAP.welcome_image }
 	end
 
 	def write text

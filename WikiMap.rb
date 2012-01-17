@@ -7,7 +7,7 @@ end
 
 require './app/controllers/data_controller'
 
-Shoes.app title:"WikiMap", height:750, width: 1000 do
+Shoes.app title:"WikiMap", height:750, width: 1000, resizable: false do
 	stack do
 		# require the widget-files
 		Dir.glob(File.dirname(__FILE__) + '/app/views/*', &method(:require) )
@@ -23,6 +23,7 @@ Shoes.app title:"WikiMap", height:750, width: 1000 do
 		$RESSOURCE_THUMBNAIL_PATH = Array.new
 		$RESSOURCE_THUMBNAIL_PATH << ENV['HOME']+"/.wikimap/tmp/my_graph_" << $IMAGE_COUNTER << ".png"
 		$CURRENT_MIND_MAP 		# Aktueller Image-Path der Mindmap
+		$BACK = false
 
 		# initialize the ui-elements
 		stack do
@@ -41,6 +42,7 @@ Shoes.app title:"WikiMap", height:750, width: 1000 do
 
 	# define some hotkeys
 	keypress do |k|
-		$TITLE_BAR.draw_option_list$TITLE_BAR.lookup_text if k == "\n"
+		$TITLE_BAR.process_search if k == "\n"
+		$TITLE_BAR.export_mindmap if k == :control_s
 	end # hotkeys
 end

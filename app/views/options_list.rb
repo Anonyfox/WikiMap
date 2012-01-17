@@ -28,10 +28,13 @@ class Shoes::OptionsList < Shoes::Widget
 			# Lock User Interactions
 			$IS_WORKING = true
 			# Check if Back-Button is pressed
-			unless thumbnail
+			unless $BACK
 				# Push the last search and thumbnail to stack
 				$SEARCHED << $SEARCHED_LAST if $SEARCHED_LAST != {}
-				# Calculate current Thumbnail
+			end
+			$BACK = false
+			# if thumbnail not given => create path
+			unless thumbnail
 				$RESSOURCE_THUMBNAIL_PATH[1] = $IMAGE_COUNTER
 				$CURRENT_MIND_MAP = $RESSOURCE_THUMBNAIL_PATH.join("")
 			else

@@ -1,6 +1,8 @@
 #encoding: UTF-8
 
 class Shoes::MindMap < Shoes::Widget
+	attr_reader :welcome_image, :wait_image, :error_image
+
 	def initialize path=nil
 		@welcome_image = "./app/gfx/welcome_screen.png"
 		@wait_image = "./app/gfx/wait_screen.png"
