@@ -72,8 +72,6 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-draw_normal">#draw_normal</a>
-    
     <li><a href="#method-i-inc">#inc</a>
     
     <li><a href="#method-i-set">#set</a>
@@ -103,8 +101,6 @@
   
     <li><a href="../Shoes.html">Shoes</a>
   
-    <li><a href="../Shoes/InternetStatus.html">Shoes::InternetStatus</a>
-  
     <li><a href="../Shoes/ItemUrl.html">Shoes::ItemUrl</a>
   
     <li><a href="../Shoes/MindMap.html">Shoes::MindMap</a>
@@ -115,23 +111,11 @@
   
     <li><a href="../Shoes/TitleBar.html">Shoes::TitleBar</a>
   
-    <li><a href="../AddPageTable.html">AddPageTable</a>
-  
-    <li><a href="../ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="../DataBase.html">DataBase</a>
-  
     <li><a href="../DataController.html">DataController</a>
   
     <li><a href="../GraphvizSimple.html">GraphvizSimple</a>
   
-    <li><a href="../Init.html">Init</a>
-  
-    <li><a href="../MainWindow.html">MainWindow</a>
-  
-    <li><a href="../Page.html">Page</a>
-  
-    <li><a href="../PageController.html">PageController</a>
+    <li><a href="../Phrases.html">Phrases</a>
   
     <li><a href="../WikiClient.html">WikiClient</a>
   
@@ -146,6 +130,11 @@
 
   <div id="description" class="description">
     
+<p>The Statusbar of the WikiMap Application. It contains a progressbar which
+can be controlled through the inc and set methods. There is also a little
+StatusText within, right to the progressbar. You may set the text of this
+StatusText  by using the write method.</p>
+
   </div><!-- description -->
 
   
@@ -210,17 +199,18 @@
 
         <div class="method-description">
           
-          
+          <p>creates a new Statusbar Widget, you may give it a StatusText fo startup. It
+is 980px width.</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">start_text</span>=<span class="ruby-string">&quot;&quot;</span>
-        <span class="ruby-ivar">@main</span> = <span class="ruby-identifier">flow</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">980</span>, <span class="ruby-identifier">margin_left</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">margin_top</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span>
-        <span class="ruby-ivar">@prog</span> = <span class="ruby-value">0.0</span>
-        <span class="ruby-ivar">@msg</span> = <span class="ruby-identifier">start_text</span>
-        <span class="ruby-identifier">draw_normal</span>
+        <span class="ruby-identifier">main</span> = <span class="ruby-identifier">flow</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">980</span>, <span class="ruby-identifier">margin_left</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">margin_top</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@progress_bar</span> = <span class="ruby-identifier">progress</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">700</span>, <span class="ruby-identifier">fraction</span><span class="ruby-operator">:</span> (<span class="ruby-ivar">@prog</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0.0</span>)
+                <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">para</span> <span class="ruby-identifier">strong</span>(<span class="ruby-ivar">@msg</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">start_text</span>), <span class="ruby-identifier">size</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">stroke</span><span class="ruby-operator">:</span> <span class="ruby-identifier">white</span>
+        <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -238,62 +228,26 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-draw_normal" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">draw_normal</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="draw_normal-source">
-            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_normal</span>
-        <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">clear</span> <span class="ruby-keyword">do</span>
-                <span class="ruby-comment">#@internet_status = internet_status</span>
-                <span class="ruby-comment">#$DATA.internet_available? ? @internet_status.switch_on : @internet_status.switch_off</span>
-                <span class="ruby-ivar">@progress_bar</span> = <span class="ruby-identifier">progress</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">700</span>, <span class="ruby-identifier">fraction</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@prog</span>
-                <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">para</span> <span class="ruby-identifier">strong</span>(<span class="ruby-ivar">@msg</span>), <span class="ruby-identifier">size</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">stroke</span><span class="ruby-operator">:</span> <span class="ruby-identifier">white</span>
-        <span class="ruby-keyword">end</span> <span class="ruby-comment">#main.clear</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- draw_normal-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- draw_normal-method -->
-
-    
       <div id="method-i-inc" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">inc</span><span
-            class="method-args">(number)</span>
+            class="method-args">(number=0.0)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Inkrementiert den Fortschritt der Progressbar um eine Größe number number
-must be between 0.0 and 1.0</p>
+          <p>Increments the statusbar by the given number.  number must be a float
+between 0.0 and 1.0</p>
           
 
           
           <div class="method-source-code" id="inc-source">
-            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">inc</span> <span class="ruby-identifier">number</span>
-        <span class="ruby-ivar">@prog</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">number</span>
-        <span class="ruby-ivar">@progress_bar</span>.<span class="ruby-identifier">fraction</span> = <span class="ruby-ivar">@prog</span>
+            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inc</span> <span class="ruby-identifier">number</span>=<span class="ruby-value">0.0</span>
+        <span class="ruby-ivar">@progress_bar</span>.<span class="ruby-identifier">fraction</span> = (<span class="ruby-ivar">@prog</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">number</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- inc-source -->
           
@@ -309,22 +263,22 @@ must be between 0.0 and 1.0</p>
         
         <div class="method-heading">
           <span class="method-name">set</span><span
-            class="method-args">(number)</span>
+            class="method-args">(number=0.0)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          
+          <p>Set the fraction of the progressbar directly.  number must be a float
+between 0.0 and 1.0</p>
           
 
           
           <div class="method-source-code" id="set-source">
-            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span> <span class="ruby-identifier">number</span>
-        <span class="ruby-ivar">@prog</span> = <span class="ruby-identifier">number</span>
-        <span class="ruby-ivar">@progress_bar</span>.<span class="ruby-identifier">fraction</span> = <span class="ruby-ivar">@prog</span>
+            <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span> <span class="ruby-identifier">number</span>=<span class="ruby-value">0.0</span>
+        <span class="ruby-ivar">@progress_bar</span>.<span class="ruby-identifier">fraction</span> = <span class="ruby-ivar">@prog</span> = <span class="ruby-identifier">number</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- set-source -->
           
@@ -340,22 +294,22 @@ must be between 0.0 and 1.0</p>
         
         <div class="method-heading">
           <span class="method-name">write</span><span
-            class="method-args">(text)</span>
+            class="method-args">(text="")</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          
+          <p>changes the text of the <a href="StatusBar.html">StatusBar</a>. Remember
+that there is not too much space to write full-blown texts!</p>
           
 
           
           <div class="method-source-code" id="write-source">
             <pre><span class="ruby-comment"># File app/views/status_bar.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span> <span class="ruby-identifier">text</span>
-        <span class="ruby-ivar">@msg</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
-        <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">text</span> = <span class="ruby-ivar">@msg</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span> <span class="ruby-identifier">text</span>=<span class="ruby-string">&quot;&quot;</span>
+        <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">text</span> = <span class="ruby-ivar">@msg</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- write-source -->
           

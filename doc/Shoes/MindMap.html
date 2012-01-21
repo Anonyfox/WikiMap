@@ -72,13 +72,7 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-draw_error_screen">#draw_error_screen</a>
-    
     <li><a href="#method-i-draw_normal">#draw_normal</a>
-    
-    <li><a href="#method-i-draw_wait_screen">#draw_wait_screen</a>
-    
-    <li><a href="#method-i-draw_welcome_screen">#draw_welcome_screen</a>
     
   </ul>
 </nav>
@@ -103,8 +97,6 @@
   
     <li><a href="../Shoes.html">Shoes</a>
   
-    <li><a href="../Shoes/InternetStatus.html">Shoes::InternetStatus</a>
-  
     <li><a href="../Shoes/ItemUrl.html">Shoes::ItemUrl</a>
   
     <li><a href="../Shoes/MindMap.html">Shoes::MindMap</a>
@@ -115,23 +107,11 @@
   
     <li><a href="../Shoes/TitleBar.html">Shoes::TitleBar</a>
   
-    <li><a href="../AddPageTable.html">AddPageTable</a>
-  
-    <li><a href="../ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="../DataBase.html">DataBase</a>
-  
     <li><a href="../DataController.html">DataController</a>
   
     <li><a href="../GraphvizSimple.html">GraphvizSimple</a>
   
-    <li><a href="../Init.html">Init</a>
-  
-    <li><a href="../MainWindow.html">MainWindow</a>
-  
-    <li><a href="../Page.html">Page</a>
-  
-    <li><a href="../PageController.html">PageController</a>
+    <li><a href="../Phrases.html">Phrases</a>
   
     <li><a href="../WikiClient.html">WikiClient</a>
   
@@ -146,6 +126,10 @@
 
   <div id="description" class="description">
     
+<p>This simple widget is a kind of container, it simply shows images. Remember
+that you can show any special picture (error screen, load screen, …) by
+just calling <code> mm.draw_#{name}_screen</code>.</p>
+
   </div><!-- description -->
 
   
@@ -177,17 +161,15 @@
 
         <div class="method-description">
           
-          
+          <p>instance a new <a href="MindMap.html">MindMap</a> widget. you may set a
+startup-image, but the default is to use /app/gfx/welcome_screen.png</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">path</span>=<span class="ruby-keyword">nil</span>
-        <span class="ruby-ivar">@welcome_image</span> = <span class="ruby-string">&quot;./app/gfx/welcome_screen.png&quot;</span>
-        <span class="ruby-ivar">@wait_image</span> = <span class="ruby-string">&quot;./app/gfx/wait_screen.png&quot;</span>
-        <span class="ruby-ivar">@error_image</span> = <span class="ruby-string">&quot;./app/gfx/error_screen_png&quot;</span>
-        <span class="ruby-ivar">@pic</span> = <span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@welcome_image</span>
+        <span class="ruby-ivar">@pic</span> = <span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:welcome_image</span>)
         <span class="ruby-ivar">@main</span> = <span class="ruby-identifier">flow</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">600</span>, <span class="ruby-identifier">height</span><span class="ruby-operator">:</span> <span class="ruby-value">600</span>
         <span class="ruby-identifier">draw_normal</span>
 <span class="ruby-keyword">end</span></pre>
@@ -207,36 +189,6 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-draw_error_screen" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">draw_error_screen</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="draw_error_screen-source">
-            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 29</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_error_screen</span>
-        <span class="ruby-identifier">draw_normal</span> <span class="ruby-ivar">@error_image</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- draw_error_screen-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- draw_error_screen-method -->
-
-    
       <div id="method-i-draw_normal" class="method-detail ">
         
         <div class="method-heading">
@@ -248,12 +200,13 @@
 
         <div class="method-description">
           
-          
+          <p>redraw the image with the given (new) path. use this method to switch the
+image shown.</p>
           
 
           
           <div class="method-source-code" id="draw_normal-source">
-            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 12</span>
+            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_normal</span> <span class="ruby-identifier">image_path</span>=<span class="ruby-keyword">nil</span>
         <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">clear</span> <span class="ruby-keyword">do</span>
                 <span class="ruby-identifier">background</span> <span class="ruby-identifier">white</span> <span class="ruby-operator">..</span> <span class="ruby-identifier">plum</span>, <span class="ruby-identifier">angle</span><span class="ruby-operator">:</span> <span class="ruby-value">90</span>
@@ -270,66 +223,6 @@
 
         
       </div><!-- draw_normal-method -->
-
-    
-      <div id="method-i-draw_wait_screen" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">draw_wait_screen</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="draw_wait_screen-source">
-            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 25</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_wait_screen</span>
-        <span class="ruby-identifier">draw_normal</span> <span class="ruby-ivar">@wait_image</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- draw_wait_screen-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- draw_wait_screen-method -->
-
-    
-      <div id="method-i-draw_welcome_screen" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">draw_welcome_screen</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="draw_welcome_screen-source">
-            <pre><span class="ruby-comment"># File app/views/mind_map.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_welcome_screen</span>
-        <span class="ruby-identifier">draw_normal</span> <span class="ruby-ivar">@welcome_image</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- draw_welcome_screen-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- draw_welcome_screen-method -->
 
     
     </section><!-- public-instance-method-details -->

@@ -103,8 +103,6 @@
   
     <li><a href="./Shoes.html">Shoes</a>
   
-    <li><a href="./Shoes/InternetStatus.html">Shoes::InternetStatus</a>
-  
     <li><a href="./Shoes/ItemUrl.html">Shoes::ItemUrl</a>
   
     <li><a href="./Shoes/MindMap.html">Shoes::MindMap</a>
@@ -115,23 +113,11 @@
   
     <li><a href="./Shoes/TitleBar.html">Shoes::TitleBar</a>
   
-    <li><a href="./AddPageTable.html">AddPageTable</a>
-  
-    <li><a href="./ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="./DataBase.html">DataBase</a>
-  
     <li><a href="./DataController.html">DataController</a>
   
     <li><a href="./GraphvizSimple.html">GraphvizSimple</a>
   
-    <li><a href="./Init.html">Init</a>
-  
-    <li><a href="./MainWindow.html">MainWindow</a>
-  
-    <li><a href="./Page.html">Page</a>
-  
-    <li><a href="./PageController.html">PageController</a>
+    <li><a href="./Phrases.html">Phrases</a>
   
     <li><a href="./WikiClient.html">WikiClient</a>
   
@@ -185,15 +171,12 @@ loading/storing stuff. very easy.</p>
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-        <span class="ruby-identifier">require</span> <span class="ruby-string">'kioku'</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">'kioku'</span> <span class="ruby-comment">#check out this awesome gem at rubygems.org ;)</span>
         <span class="ruby-identifier">require_relative</span> <span class="ruby-string">'../libs/wiki_client'</span>
-
-        <span class="ruby-ivar">@home</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">'HOME'</span>]
-        <span class="ruby-ivar">@path</span> = <span class="ruby-ivar">@home</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/.wikimap&quot;</span>
+        <span class="ruby-ivar">@path</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">'HOME'</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/.wikimap&quot;</span>
         <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@path</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-ivar">@path</span>
         <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@path</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/tmp&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-ivar">@path</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/tmp&quot;</span>
-        <span class="ruby-ivar">@name</span> = <span class="ruby-ivar">@path</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/wikimap.db&quot;</span>
-        <span class="ruby-ivar">@db</span> = <span class="ruby-constant">Kioku</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@name</span>
+        <span class="ruby-ivar">@db</span> = <span class="ruby-constant">Kioku</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/wikimap.db&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -227,12 +210,10 @@ loading/storing stuff. very easy.</p>
 
           
           <div class="method-source-code" id="internet_available-3F-source">
-            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 45</span>
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">internet_available?</span>
         <span class="ruby-identifier">require</span> <span class="ruby-string">'net/ping/http'</span>
-        <span class="ruby-comment"># google is the most solid test target</span>
-        <span class="ruby-identifier">http</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">Ping</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;http://www.google.com&quot;</span>)
-        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">ping?</span> <span class="ruby-comment">#? true : false</span>
+        <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">Ping</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;http://www.google.com&quot;</span>).<span class="ruby-identifier">ping?</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- internet_available-3F-source -->
           
@@ -260,7 +241,7 @@ loading/storing stuff. very easy.</p>
 
           
           <div class="method-source-code" id="look_for-source">
-            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 29</span>
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">look_for</span> <span class="ruby-identifier">name</span>
         <span class="ruby-identifier">answer</span> = <span class="ruby-keyword">nil</span>
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">internet_available?</span>
@@ -292,12 +273,12 @@ loading/storing stuff. very easy.</p>
 
         <div class="method-description">
           
-          
+          <p>wrapper for the original output method.</p>
           
 
           
           <div class="method-source-code" id="render-source">
-            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 40</span>
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">thumb</span>=<span class="ruby-keyword">true</span>
         <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">output</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">thumb</span>
 <span class="ruby-keyword">end</span></pre>
@@ -327,7 +308,7 @@ loading/storing stuff. very easy.</p>
 
           
           <div class="method-source-code" id="search_matching_links_to-source">
-            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search_matching_links_to</span> <span class="ruby-identifier">name</span>
         <span class="ruby-identifier">answer</span> = <span class="ruby-keyword">nil</span>
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">internet_available?</span>

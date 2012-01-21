@@ -66,17 +66,11 @@
     
     <li><a href="#method-c-ask">::ask</a>
     
-    <li><a href="#method-c-build_query_url">::build_query_url</a>
-    
-    <li><a href="#method-c-build_search_url">::build_search_url</a>
-    
     <li><a href="#method-c-get">::get</a>
     
     <li><a href="#method-c-output">::output</a>
     
-    <li><a href="#method-c-response_links">::response_links</a>
-    
-    <li><a href="#method-c-response_list">::response_list</a>
+    <li><a href="#method-c-random_pages">::random_pages</a>
     
   </ul>
 </nav>
@@ -101,8 +95,6 @@
   
     <li><a href="./Shoes.html">Shoes</a>
   
-    <li><a href="./Shoes/InternetStatus.html">Shoes::InternetStatus</a>
-  
     <li><a href="./Shoes/ItemUrl.html">Shoes::ItemUrl</a>
   
     <li><a href="./Shoes/MindMap.html">Shoes::MindMap</a>
@@ -113,23 +105,11 @@
   
     <li><a href="./Shoes/TitleBar.html">Shoes::TitleBar</a>
   
-    <li><a href="./AddPageTable.html">AddPageTable</a>
-  
-    <li><a href="./ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="./DataBase.html">DataBase</a>
-  
     <li><a href="./DataController.html">DataController</a>
   
     <li><a href="./GraphvizSimple.html">GraphvizSimple</a>
   
-    <li><a href="./Init.html">Init</a>
-  
-    <li><a href="./MainWindow.html">MainWindow</a>
-  
-    <li><a href="./Page.html">Page</a>
-  
-    <li><a href="./PageController.html">PageController</a>
+    <li><a href="./Phrases.html">Phrases</a>
   
     <li><a href="./WikiClient.html">WikiClient</a>
   
@@ -184,7 +164,7 @@ return the wanted informations as Array</p>
 
           
           <div class="method-source-code" id="ask-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ask</span> <span class="ruby-identifier">search_str</span>
         <span class="ruby-identifier">search_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_search_url</span> <span class="ruby-identifier">search_str</span>
         <span class="ruby-identifier">h</span> = <span class="ruby-identifier">open</span>(<span class="ruby-identifier">search_url</span>).<span class="ruby-identifier">read</span>
@@ -217,11 +197,11 @@ phrases as an Array</p>
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">query_str</span>
         <span class="ruby-identifier">query_url</span> = <span class="ruby-identifier">build_query_url</span> <span class="ruby-identifier">query_str</span>
         <span class="ruby-identifier">h</span> = <span class="ruby-identifier">open</span>(<span class="ruby-identifier">query_url</span>).<span class="ruby-identifier">read</span>
-        <span class="ruby-identifier">response_links</span> <span class="ruby-constant">JSON</span>(<span class="ruby-identifier">h</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">response_links</span> <span class="ruby-constant">JSON</span>(<span class="ruby-identifier">h</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- get-source -->
           
@@ -244,12 +224,12 @@ phrases as an Array</p>
 
         <div class="method-description">
           
-          
+          <p>needs much refactoring love!</p>
           
 
           
           <div class="method-source-code" id="output-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 33</span>
+            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span> <span class="ruby-identifier">phrase</span>, <span class="ruby-identifier">links</span>=[], <span class="ruby-identifier">destination</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">thumbnail</span>=<span class="ruby-keyword">true</span>
         <span class="ruby-identifier">destination</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;my_graph_0.png&quot;</span>
         <span class="ruby-identifier">graph</span> = <span class="ruby-constant">GraphvizSimple</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;MindMap&quot;</span>)
@@ -292,154 +272,38 @@ phrases as an Array</p>
       </div><!-- output-method -->
 
     
+      <div id="method-c-random_pages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">random_pages</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>just returns some random pages of wikipedia</p>
+          
+
+          
+          <div class="method-source-code" id="random_pages-source">
+            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">random_pages</span>
+        <span class="ruby-identifier">h</span> = <span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;http://de.wikipedia.org/w/api.php?action=query&amp;format=json&amp;list=random&amp;rnlimit=10&quot;</span>).<span class="ruby-identifier">read</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">random_links</span> <span class="ruby-constant">JSON</span>(<span class="ruby-identifier">h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- random_pages-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- random_pages-method -->
+
+    
     </section><!-- public-class-method-details -->
-  
-     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Private Class Methods</h3>
-
-    
-      <div id="method-c-build_query_url" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">build_query_url</span><span
-            class="method-args">(str)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>build a valid request-url with the given string. if this string is not a
-valid Wikipedia-Topic, you will get errors later!  Best Practise is to use
-one of the Strings returned by the search-request. this url should be used
-to get all links of a topic</p>
-          
-
-          
-          <div class="method-source-code" id="build_query_url-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 82</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_query_url</span> <span class="ruby-identifier">str</span>
-        <span class="ruby-identifier">query</span> = <span class="ruby-string">&quot;http://de.wikipedia.org/w/api.php?action=query&quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-string">&quot;&amp;format=json&amp;prop=links&amp;pllimit=500&quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-string">&quot;&amp;titles=&quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">str</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- build_query_url-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- build_query_url-method -->
-
-    
-      <div id="method-c-build_search_url" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">build_search_url</span><span
-            class="method-args">(str)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>build a valid request-url with the given string. this url should be used to
-find matching topics to the given string</p>
-          
-
-          
-          <div class="method-source-code" id="build_search_url-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 70</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build_search_url</span> <span class="ruby-identifier">str</span>
-        <span class="ruby-identifier">search</span> = <span class="ruby-string">&quot;http://de.wikipedia.org/w/api.php?action=opensearch&quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-string">&quot;&amp;format=json&quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-string">&quot;&amp;search=&quot;</span> <span class="ruby-operator">+</span> 
-        <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">str</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- build_search_url-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- build_search_url-method -->
-
-    
-      <div id="method-c-response_links" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">response_links</span><span
-            class="method-args">(json)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>the helper method of of <a href="WikiClient.html#method-c-get">::get</a>,
-which extracts the wanted links from the JSON-Object and returns them as an
-Array</p>
-          
-
-          
-          <div class="method-source-code" id="response_links-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 98</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">response_links</span> <span class="ruby-identifier">json</span>
-        <span class="ruby-identifier">links</span> = []
-        <span class="ruby-identifier">json</span>[<span class="ruby-string">&quot;query&quot;</span>][<span class="ruby-string">&quot;pages&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
-                <span class="ruby-comment"># there is only one entry with the page_id, </span>
-                <span class="ruby-comment"># so this runs just once. a simple workaround</span>
-                (<span class="ruby-identifier">value</span>[<span class="ruby-string">&quot;links&quot;</span>] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
-                        <span class="ruby-identifier">links</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&quot;title&quot;</span>]
-                <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">links</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- response_links-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- response_links-method -->
-
-    
-      <div id="method-c-response_list" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">response_list</span><span
-            class="method-args">(json)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>a helper method to extract the Names-list of the JSON-object of the ask
-method</p>
-          
-
-          
-          <div class="method-source-code" id="response_list-source">
-            <pre><span class="ruby-comment"># File app/libs/wiki_client.rb, line 91</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">response_list</span> <span class="ruby-identifier">json</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">json</span>[<span class="ruby-value">1</span>]
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- response_list-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- response_list-method -->
-
-    
-    </section><!-- private-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 
