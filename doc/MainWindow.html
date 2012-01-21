@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class AddPageTable - RDoc Documentation</title>
+<title>class MainWindow - RDoc Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>old_staff/app/db/migrations/test_migration.rb
+    <li>old_staff/app/views/main_window.rb
   </ul>
 </nav>
 
@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link">ActiveRecord::Migration
+  <p class="link">Object
   
 </nav>
 
@@ -70,9 +70,9 @@
 
   <ul class="link-list">
     
-    <li><a href="#method-c-down">::down</a>
+    <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-c-up">::up</a>
+    <li><a href="#method-i-draw_window">#draw_window</a>
     
   </ul>
 </nav>
@@ -136,13 +136,10 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class AddPageTable</h1>
+  <h1 class="class">class MainWindow</h1>
 
   <div id="description" class="description">
     
-<p>This class contains the table description inside the  database.  Just run
-this script to create the correct table</p>
-
   </div><!-- description -->
 
   
@@ -163,72 +160,88 @@ this script to create the correct table</p>
       <h3 class="section-header">Public Class Methods</h3>
 
     
-      <div id="method-c-down" class="method-detail ">
+      <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">down</span><span
-            class="method-args">()</span>
+          <span class="method-name">new</span><span
+            class="method-args">(main_window)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Delete the whole :pages table. All data will be lost!</p>
+          
           
 
           
-          <div class="method-source-code" id="down-source">
-            <pre><span class="ruby-comment"># File old_staff/app/db/migrations/test_migration.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">down</span>
-        <span class="ruby-identifier">drop_table</span> <span class="ruby-value">:pages</span>
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File old_staff/app/views/main_window.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">main_window</span>
+        <span class="ruby-ivar">@options_list</span>
+        <span class="ruby-ivar">@mind_map</span>
+        <span class="ruby-ivar">@search_field</span>
+        <span class="ruby-ivar">@main_window</span> = <span class="ruby-identifier">main_window</span>
+        <span class="ruby-identifier">p</span> <span class="ruby-identifier">main_window</span>
+        <span class="ruby-identifier">draw_window</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- down-source -->
+          </div><!-- new-source -->
           
         </div>
 
         
 
         
-      </div><!-- down-method -->
-
-    
-      <div id="method-c-up" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">up</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>create the table :pages.</p>
-          
-
-          
-          <div class="method-source-code" id="up-source">
-            <pre><span class="ruby-comment"># File old_staff/app/db/migrations/test_migration.rb, line 7</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">up</span>
-        <span class="ruby-identifier">create_table</span> <span class="ruby-value">:pages</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
-                <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-value">:phrase</span>
-                <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span> <span class="ruby-value">:targets</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-comment">#csv-like ID-list</span>
-                <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span> <span class="ruby-value">:crawled</span>
-                <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
-        <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- up-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- up-method -->
+      </div><!-- new-method -->
 
     
     </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-draw_window" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_window</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="draw_window-source">
+            <pre><span class="ruby-comment"># File old_staff/app/views/main_window.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_window</span>
+        <span class="ruby-constant">Rubeus</span><span class="ruby-operator">::</span><span class="ruby-constant">Swing</span>.<span class="ruby-identifier">irb</span>
+        <span class="ruby-comment"># the headline with search field and buttons</span>
+        <span class="ruby-identifier">title_pane</span> = <span class="ruby-constant">JPanel</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">size</span><span class="ruby-operator">:</span> [<span class="ruby-value">1000</span>, <span class="ruby-value">50</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pane</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">pane</span>.<span class="ruby-identifier">layout</span> = <span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">4</span>, <span class="ruby-value">1</span>
+                <span class="ruby-identifier">pane</span>.<span class="ruby-identifier">border</span> = <span class="ruby-constant">BorderFactory</span>.<span class="ruby-identifier">createEtchedBorder</span>
+                <span class="ruby-ivar">@search_field</span> = <span class="ruby-constant">JTextField</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">columns</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>
+                <span class="ruby-constant">JButton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot; search &quot;</span>) { <span class="ruby-keyword">nil</span> }
+                <span class="ruby-constant">JButton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot; export as image &quot;</span>) { <span class="ruby-keyword">nil</span> }
+                <span class="ruby-constant">JButton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot; another Button... &quot;</span>) { <span class="ruby-keyword">nil</span> }
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@main_window</span>.<span class="ruby-identifier">add</span> <span class="ruby-identifier">title_pane</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- draw_window-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- draw_window-method -->
+
+    
+    </section><!-- public-instance-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

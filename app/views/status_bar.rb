@@ -1,39 +1,38 @@
 #encoding: utf-8
 
+# The Statusbar of the WikiMap Application. It contains a
+# progressbar which can be controlled through the inc and set
+# methods. There is also a little StatusText within, right to
+# the progressbar. You may set the text of this StatusText 
+# by using the write method. 
 class Shoes::StatusBar < Shoes::Widget
 	attr_reader :prog, :msg
 
+  # creates a new Statusbar Widget, you may give it a StatusText
+  # fo startup. It is 980px width.
 	def initialize start_text=""
-		@main = flow width: 980, margin_left: 10, margin_top: 5
-		@prog = 0.0
-		@msg = start_text
-		draw_normal
+		main = flow width: 980, margin_left: 10, margin_top: 5 do
+			@progress_bar = progress width: 700, fraction: (@prog ||= 0.0)
+			@message = para strong(@msg ||= start_text), size: 10, stroke: white
+		end
 	end
 
-	def draw_normal
-		@main.clear do
-			#@internet_status = internet_status
-			#$DATA.internet_available? ? @internet_status.switch_on : @internet_status.switch_off
-			@progress_bar = progress width: 700, fraction: @prog
-			@message = para strong(@msg), size: 10, stroke: white
-		end #main.clear
+	# Increments the statusbar by the given number. 
+	# number must be a float between 0.0 and 1.0
+	def inc number=0.0
+		@progress_bar.fraction = (@prog += number)
 	end
 
-	# Inkrementiert den Fortschritt der Progressbar um eine Größe number
-	# number must be between 0.0 and 1.0
-	def inc number
-		@prog += number
-		@progress_bar.fraction = @prog
+	# Set the fraction of the progressbar directly. 
+	# number must be a float between 0.0 and 1.0
+	def set number=0.0
+		@progress_bar.fraction = @prog = number
 	end
 
-	def set number
-		@prog = number
-		@progress_bar.fraction = @prog
-	end
-
-	def write text
-		@msg = text.to_s
-		@message.text = @msg
+	# changes the text of the StatusBar. Remember that there
+	# is not too much space to write full-blown texts!
+	def write text=""
+		@message.text = @msg = text.to_s
 	end
 
 end

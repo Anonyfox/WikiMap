@@ -1,12 +1,23 @@
-Fri, 11 Nov 2011 14:42:13 +0100
-./prototypes/request_test.rb	Mon, 24 Oct 2011 12:50:51 +0200
-./prototypes/wikimap_shoes.rb	Mon, 24 Oct 2011 11:26:55 +0200
+Tue, 17 Jan 2012 14:01:26 +0100
 ./README	Fri, 11 Nov 2011 12:22:39 +0100
-./app/controllers/application_controller.rb	Fri, 11 Nov 2011 14:27:54 +0100
-./app/controllers/page_controller.rb	Fri, 11 Nov 2011 12:46:18 +0100
-./app/db/testbase.rb	Fri, 11 Nov 2011 12:16:42 +0100
-./app/db/migrations/test_migration.rb	Fri, 11 Nov 2011 14:32:08 +0100
-./app/models/page.rb	Fri, 11 Nov 2011 13:03:46 +0100
-./app/views/testview.rb	Mon, 24 Oct 2011 11:26:18 +0200
-./app/lib/wiki_client.rb	Fri, 11 Nov 2011 14:01:40 +0100
+./old_staff/app/controllers/application_controller.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/controllers/page_controller.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/db/testbase.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/db/migrations/test_migration.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/db/kioku_client.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/db/data_base.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/models/page.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/views/main_window.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/views/testview.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./old_staff/app/libs/init.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./WikiMap.rb	Tue, 17 Jan 2012 12:12:47 +0100
+./app/controllers/data_controller.rb	Tue, 17 Jan 2012 12:43:36 +0100
+./app/views/internet_status.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./app/views/mind_map.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./app/views/status_bar.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./app/views/item_url.rb	Tue, 17 Jan 2012 11:39:25 +0100
+./app/views/options_list.rb	Tue, 17 Jan 2012 12:13:40 +0100
+./app/views/title_bar.rb	Tue, 17 Jan 2012 12:57:05 +0100
+./app/libs/wiki_client.rb	Tue, 17 Jan 2012 12:34:33 +0100
+./app/libs/graph-viz-simple.rb	Tue, 17 Jan 2012 11:39:25 +0100
 ./test/test.rb	Mon, 24 Oct 2011 11:27:07 +0200

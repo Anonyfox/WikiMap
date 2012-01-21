@@ -1,455 +1,411 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+
+<html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-	<title>Class: ApplicationController</title>
+<title>class ApplicationController - RDoc Documentation</title>
 
-	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
 
-</head>
-<body class="class">
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="./index.html">Home</a>
-          <a href="./index.html#classes">Classes</a>
-          <a href="./index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="./app/controllers/application_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
 
-			
-		</div>
 
-		<div id="class-metadata">
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
 
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link">Object</p>
-				
-			</div>
-			
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
 
-			<!-- Namespace Contents -->
-			
 
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-c-new">::new</a></li>
-					
-					<li><a href="#method-i-ask_wiki_for">#ask_wiki_for</a></li>
-					
-					<li><a href="#method-i-crawl_page">#crawl_page</a></li>
-					
-					<li><a href="#method-i-draw_main_window">#draw_main_window</a></li>
-					
-					<li><a href="#method-i-draw_mindmap">#draw_mindmap</a></li>
-					
-					<li><a href="#method-i-draw_options">#draw_options</a></li>
-					
-				</ul>
-			</div>
-			
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>old_staff/app/controllers/application_controller.rb
+  </ul>
+</nav>
 
-			<!-- Included Modules -->
-			
-		</div>
+    
+  </div>
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./README.html">README</a></li>
-				
-				</ul>
-			</div>
-			
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
 
-				<ul class="link-list">
-				
-					<li><a href="./AddPageTable.html">AddPageTable</a></li>
-				
-					<li><a href="./ApplicationController.html">ApplicationController</a></li>
-				
-					<li><a href="./Page.html">Page</a></li>
-				
-					<li><a href="./PageController.html">PageController</a></li>
-				
-					<li><a href="./WikiClient.html">WikiClient</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-ask_wiki_for">#ask_wiki_for</a>
+    
+    <li><a href="#method-i-crawl_page">#crawl_page</a>
+    
+    <li><a href="#method-i-draw_main_window">#draw_main_window</a>
+    
+    <li><a href="#method-i-draw_mindmap">#draw_mindmap</a>
+    
+    <li><a href="#method-i-draw_options">#draw_options</a>
+    
+  </ul>
+</nav>
 
-			
-		</div>
-	</div>
+  </div>
 
-	<div id="documentation">
-		<h1 class="class">ApplicationController</h1>
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
 
-		<div id="description">
-			<p>
-This class is the main controller of the application.  it merges the <a
+  <ul>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Shoes.html">Shoes</a>
+  
+    <li><a href="./Shoes/InternetStatus.html">Shoes::InternetStatus</a>
+  
+    <li><a href="./Shoes/ItemUrl.html">Shoes::ItemUrl</a>
+  
+    <li><a href="./Shoes/MindMap.html">Shoes::MindMap</a>
+  
+    <li><a href="./Shoes/OptionsList.html">Shoes::OptionsList</a>
+  
+    <li><a href="./Shoes/StatusBar.html">Shoes::StatusBar</a>
+  
+    <li><a href="./Shoes/TitleBar.html">Shoes::TitleBar</a>
+  
+    <li><a href="./AddPageTable.html">AddPageTable</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./DataBase.html">DataBase</a>
+  
+    <li><a href="./DataController.html">DataController</a>
+  
+    <li><a href="./GraphvizSimple.html">GraphvizSimple</a>
+  
+    <li><a href="./Init.html">Init</a>
+  
+    <li><a href="./MainWindow.html">MainWindow</a>
+  
+    <li><a href="./Page.html">Page</a>
+  
+    <li><a href="./PageController.html">PageController</a>
+  
+    <li><a href="./WikiClient.html">WikiClient</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class ApplicationController</h1>
+
+  <div id="description" class="description">
+    
+<p>This class is the main controller of the application.  it merges the <a
 href="WikiClient.html">WikiClient</a> with the <a
-href="PageController.html">PageController</a> and organizes the views.
-</p>
+href="PageController.html">PageController</a> and organizes the views.</p>
 
-		</div>
+  </div><!-- description -->
 
-		<!-- Constants -->
-		
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
 
-		<!-- Attributes -->
-		
+    
 
-		<!-- Methods -->
-		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
+    
 
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-c-new"></a>
+    
 
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
 
-				<div class="method-description">
-					
-					<p>
-This Action creates the main window, an sets everything ready-to-use
-</p>
-					
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-					
-					<div class="method-source-code"
-						id="new-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 14</span>
-14:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
-15:                 <span class="ruby-identifier">draw_main_window</span>
-16:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+        <div class="method-description">
+          
+          <p>This Action creates the main window, an sets everything ready-to-use</p>
+          
 
-				
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File old_staff/app/controllers/application_controller.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+        <span class="ruby-identifier">draw_main_window</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
 
-				
-			</div>
+        
 
-		
-		</div>
-	
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
+        
+      </div><!-- new-method -->
 
-		
-			<div id="ask-wiki-for-method" class="method-detail ">
-				<a name="method-i-ask_wiki_for"></a>
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
-				<div class="method-heading">
-				
-					<span class="method-name">ask_wiki_for</span><span
-						class="method-args">(str)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    
+      <div id="method-i-ask_wiki_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_wiki_for</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-description">
-					
-					<p>
-look into wikipedia if the given string matches any topics, return an array
-of topics, and update the gui with the results
-</p>
-					
+        <div class="method-description">
+          
+          <p>look into wikipedia if the given string matches any topics, return an array
+of topics, and update the gui with the results</p>
+          
 
-					
-					<div class="method-source-code"
-						id="ask-wiki-for-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 20</span>
-20:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ask_wiki_for</span> <span class="ruby-identifier">str</span>
-21:                 <span class="ruby-identifier">list</span> = <span class="ruby-keyword kw">false</span>
-22:                 <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
-23:                         <span class="ruby-identifier">list</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">str</span>)
-24:                         <span class="ruby-identifier">draw_options</span> <span class="ruby-identifier">list</span>
-25:                 <span class="ruby-keyword kw">end</span>
-26:                 <span class="ruby-comment cmt"># testing helper, remove this if the gui is used</span>
-27:                 <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">list</span>
-28:                         <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
-29:                 <span class="ruby-keyword kw">end</span>
-30:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+          
+          <div class="method-source-code" id="ask_wiki_for-source">
+            <pre><span class="ruby-comment"># File old_staff/app/controllers/application_controller.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_wiki_for</span> <span class="ruby-identifier">str</span>
+        <span class="ruby-identifier">list</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">list</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">str</span>)
+                <span class="ruby-identifier">draw_options</span> <span class="ruby-identifier">list</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># testing helper, remove this if the gui is used</span>
+        <span class="ruby-keyword">until</span> <span class="ruby-identifier">list</span>
+                <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ask_wiki_for-source -->
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div><!-- ask_wiki_for-method -->
 
-		
-			<div id="crawl-page-method" class="method-detail ">
-				<a name="method-i-crawl_page"></a>
+    
+      <div id="method-i-crawl_page" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">crawl_page</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-heading">
-				
-					<span class="method-name">crawl_page</span><span
-						class="method-args">(str)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-Go to the site which matches the given string, extract all the links from
+        <div class="method-description">
+          
+          <p>Go to the site which matches the given string, extract all the links from
 there, update the database with the new stuff, and  finally update the gui
-with the results
-</p>
-					
+with the results</p>
+          
 
-					
-					<div class="method-source-code"
-						id="crawl-page-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 35</span>
-35:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">crawl_page</span> <span class="ruby-identifier">str</span>
-36:                 <span class="ruby-identifier">list</span> = <span class="ruby-keyword kw">false</span>
-37:                 <span class="ruby-comment cmt">#Thread.new do</span>
-38:                         <span class="ruby-identifier">list</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">str</span>
-39:                         <span class="ruby-identifier">pc</span> = <span class="ruby-constant">PageController</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">links</span><span class="ruby-operator">:</span> <span class="ruby-identifier">list</span>
-40:                         <span class="ruby-identifier">draw_mindmap</span> <span class="ruby-identifier">pc</span>.<span class="ruby-identifier">target_pages</span>
-41:                 <span class="ruby-comment cmt">#end</span>
-42:                 <span class="ruby-comment cmt"># testing helper, remove this if the gui is used</span>
-43:                 <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">list</span>
-44:                         <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
-45:                 <span class="ruby-keyword kw">end</span>
-46:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+          
+          <div class="method-source-code" id="crawl_page-source">
+            <pre><span class="ruby-comment"># File old_staff/app/controllers/application_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">crawl_page</span> <span class="ruby-identifier">str</span>
+        <span class="ruby-identifier">list</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-comment">#Thread.new do</span>
+                <span class="ruby-identifier">list</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">str</span>
+                <span class="ruby-identifier">pc</span> = <span class="ruby-constant">PageController</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">phrase</span><span class="ruby-operator">:</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">links</span><span class="ruby-operator">:</span> <span class="ruby-identifier">list</span>
+                <span class="ruby-identifier">draw_mindmap</span> <span class="ruby-identifier">pc</span>.<span class="ruby-identifier">target_pages</span>
+        <span class="ruby-comment">#end</span>
+        <span class="ruby-comment"># testing helper, remove this if the gui is used</span>
+        <span class="ruby-keyword">until</span> <span class="ruby-identifier">list</span>
+                <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- crawl_page-source -->
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div><!-- crawl_page-method -->
 
-		
-			<div id="draw-main-window-method" class="method-detail ">
-				<a name="method-i-draw_main_window"></a>
+    
+      <div id="method-i-draw_main_window" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_main_window</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-heading">
-				
-					<span class="method-name">draw_main_window</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          <p>Draw the main window and set the gui elements ready-to-use</p>
+          
 
-				<div class="method-description">
-					
-					<p>
-Draw the main window and set the gui elements ready-to-use
-</p>
-					
+          
+          <div class="method-source-code" id="draw_main_window-source">
+            <pre><span class="ruby-comment"># File old_staff/app/controllers/application_controller.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_main_window</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\nSuchbegriff?&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- draw_main_window-source -->
+          
+        </div>
 
-					
-					<div class="method-source-code"
-						id="draw-main-window-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 49</span>
-49:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draw_main_window</span>
-50:                 <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\n\nSuchbegriff?&quot;</span>
-51:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+        
 
-				
+        
+      </div><!-- draw_main_window-method -->
 
-				
-			</div>
+    
+      <div id="method-i-draw_mindmap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_mindmap</span><span
+            class="method-args">(ary=[])</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-		
-			<div id="draw-mindmap-method" class="method-detail ">
-				<a name="method-i-draw_mindmap"></a>
+        <div class="method-description">
+          
+          <p>Print all the found keywords as klickable text (=links) in  a nice
+formatted list. This method expects an Array of Page- Objects.</p>
+          
 
-				<div class="method-heading">
-				
-					<span class="method-name">draw_mindmap</span><span
-						class="method-args">(ary=[])</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+          
+          <div class="method-source-code" id="draw_mindmap-source">
+            <pre><span class="ruby-comment"># File old_staff/app/controllers/application_controller.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_mindmap</span> <span class="ruby-identifier">ary</span>=[]
+        <span class="ruby-identifier">pp</span> <span class="ruby-identifier">ary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- draw_mindmap-source -->
+          
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-Print all the found keywords as klickable text (=links) in  a nice
-formatted list. This method expects an Array of Page- Objects.
-</p>
-					
+        
 
-					
-					<div class="method-source-code"
-						id="draw-mindmap-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 70</span>
-70:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draw_mindmap</span> <span class="ruby-identifier">ary</span>=[]
-71:                 <span class="ruby-identifier">pp</span> <span class="ruby-identifier">ary</span>
-72:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+        
+      </div><!-- draw_mindmap-method -->
 
-				
+    
+      <div id="method-i-draw_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_options</span><span
+            class="method-args">(params)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				
-			</div>
-
-		
-			<div id="draw-options-method" class="method-detail ">
-				<a name="method-i-draw_options"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">draw_options</span><span
-						class="method-args">(params)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-Update the View of the options_list with the given informations. This
+        <div class="method-description">
+          
+          <p>Update the View of the options_list with the given informations. This
 method takes different arguments depending on the current use-case. When
-you just want to show your  results, 
-</p>
-<ul>
-<li><p>
-ApplicationControllerInstance.draw_options list: [&#8230;]
-</p>
-</li>
-</ul>
-<p>
-But if you want to show a special page, use
-</p>
-<ul>
-<li><p>
-ApplicationControllerInstance.draw_options site: &#8220;my_site&#8220;
-</p>
-</li>
-</ul>
-<p>
-where &#8220;my_site&#8220; can be one of the following special sites: 
-</p>
-<ul>
-<li><p>
-&#8220;500&#8221; # => an Error <a href="Page.html">Page</a>
-</p>
-</li>
-<li><p>
-&#8220;404&#8221; # => Nothing found
-</p>
-</li>
-</ul>
-					
+you just want to show your  results,</p>
+<ul><li>
+<p>ApplicationControllerInstance.draw_options list: […]</p>
+</li></ul>
 
-					
-					<div class="method-source-code"
-						id="draw-options-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 63</span>
-63:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draw_options</span> <span class="ruby-identifier">params</span>
-64:                 <span class="ruby-identifier">pp</span> <span class="ruby-identifier">params</span>
-65:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<p>But if you want to show a special page, use</p>
+<ul><li>
+<p>ApplicationControllerInstance.draw_options site: “my_site”</p>
+</li></ul>
 
-				
+<p>where “my_site” can be one of the following special sites:</p>
+<ul><li>
+<p>"500" # =&gt; an Error <a href="Page.html">Page</a></p>
+</li><li>
+<p>"404" # =&gt; Nothing found</p>
+</li></ul>
+          
 
-				
-			</div>
+          
+          <div class="method-source-code" id="draw_options-source">
+            <pre><span class="ruby-comment"># File old_staff/app/controllers/application_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_options</span> <span class="ruby-identifier">params</span>
+        <span class="ruby-identifier">pp</span> <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- draw_options-source -->
+          
+        </div>
 
-		
-		</div>
-	
+        
 
-	</div>
+        
+      </div><!-- draw_options-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
 
 
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
-
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
-
-</body>
-</html>
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
 

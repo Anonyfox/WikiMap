@@ -1,9 +1,5 @@
 #encoding: UTF-8
 
-#Encoding.default_internal = "UTF-8"
-#Encoding.default_external = "UTF-8"
-#STDOUT.set_encoding "UTF-8"
-
 require 'json'
 require 'open-uri'
 require 'uri'
@@ -31,11 +27,13 @@ module WikiClient
 		self.response_links JSON(h)
 	end
 
+	# just returns some random pages of wikipedia
 	def self.random_pages
 		h = open("http://de.wikipedia.org/w/api.php?action=query&format=json&list=random&rnlimit=10").read
 		self.random_links JSON(h)
 	end
 
+	# needs much refactoring love!
 	def self.output phrase, links=[], destination=nil, thumbnail=true
 		destination ||= "my_graph_0.png"
 		graph = GraphvizSimple.new("MindMap")
@@ -113,6 +111,8 @@ private
 		links
 	end
 
+	# a helper method to extract the neccessary data out
+	# of the json-response
 	def self.random_links json
 		links = []
 		json["query"]["random"].each do |value|
@@ -122,6 +122,3 @@ private
 	end
 
 end
-
-#WikiClient.ask "penis" # => list of phrases
-#WikiClient.get "Penis" # => links of this page

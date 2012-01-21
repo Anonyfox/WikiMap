@@ -4,15 +4,12 @@ class DataController
 
 	# the DataController handles all the loading/storing stuff. very easy.
 	def initialize
-		require 'kioku'
+		require 'kioku' #check out this awesome gem at rubygems.org ;)
 		require_relative '../libs/wiki_client'
-
-		@home = ENV['HOME']
-		@path = @home + "/.wikimap"
+		@path = ENV['HOME'] + "/.wikimap"
 		Dir.mkdir @path unless Dir.exists? @path
 		Dir.mkdir @path+"/tmp" unless Dir.exists? @path+"/tmp"
-		@name = @path + "/wikimap.db"
-		@db = Kioku.new @name
+		@db = Kioku.new @path + "/wikimap.db"
 	end
 
 	# get a list of possible links similar to the given name
@@ -38,6 +35,7 @@ class DataController
 		answer || []
 	end
 
+	# wrapper for the original output method.
 	def render root, links, destination, thumb=true
 		WikiClient.output root, links, destination, thumb
 	end
@@ -45,8 +43,6 @@ class DataController
 	# simply checks if internet is available by pinging google.com
 	def internet_available?
 		require 'net/ping/http'
-		# google is the most solid test target
-		http = Net::Ping::HTTP.new("http://www.google.com")
-		http.ping? #? true : false
+		Net::Ping::HTTP.new("http://www.google.com").ping?
 	end
 end
