@@ -74,6 +74,10 @@ class Shoes::OptionsList < Shoes::Widget
 				$widgets.status_bar.set 0.9
 				$widgets.mind_map.draw_normal $app.current_mind_map
 				
+				# easter eggs
+				$widgets.mind_map.draw_pony_screen if name =~ /my little pony/i
+				$widgets.mind_map.draw_pony_screen if name =~ /mein kleines pony/i
+
 				# Successful
 				$widgets.status_bar.write "ready!"
 				$widgets.status_bar.set 1.0
