@@ -1,0 +1,23 @@
+body {
+	font-family: arial, verdana, sans-serif;
+	font-size: 12px;
+}
+
+#options_list {
+	float: left;
+	width: 500px;
+}
+
+#mindmap {
+	float: left;
+	width: 500px;
+}
+
+#clearfloat {
+	clear: both;
+}
+
+.link_style {
+	color: #0000ff;
+	text-decoration: underline;
+}

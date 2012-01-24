@@ -1,0 +1,5 @@
+- # encoding: utf-8
+%ul
+	- @items.each do |item|
+		%li
+			%span.link_style{onclick:"wiki_get('#{item}')"}= item
