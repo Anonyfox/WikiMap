@@ -308,6 +308,10 @@ complex behaviour when clicked.</p>
                         <span class="ruby-identifier">$widgets</span>.<span class="ruby-identifier">status_bar</span>.<span class="ruby-identifier">set</span> <span class="ruby-value">0.9</span>
                         <span class="ruby-identifier">$widgets</span>.<span class="ruby-identifier">mind_map</span>.<span class="ruby-identifier">draw_normal</span> <span class="ruby-identifier">$app</span>.<span class="ruby-identifier">current_mind_map</span>
                         
+                        <span class="ruby-comment"># easter eggs</span>
+                        <span class="ruby-identifier">$widgets</span>.<span class="ruby-identifier">mind_map</span>.<span class="ruby-identifier">draw_pony_screen</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%rmy little pony/</span>
+                        <span class="ruby-identifier">$widgets</span>.<span class="ruby-identifier">mind_map</span>.<span class="ruby-identifier">draw_pony_screen</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%rmein kleines pony/</span>
+
                         <span class="ruby-comment"># Successful</span>
                         <span class="ruby-identifier">$widgets</span>.<span class="ruby-identifier">status_bar</span>.<span class="ruby-identifier">write</span> <span class="ruby-string">&quot;ready!&quot;</span>
                         <span class="ruby-identifier">$widgets</span>.<span class="ruby-identifier">status_bar</span>.<span class="ruby-identifier">set</span> <span class="ruby-value">1.0</span>
