@@ -2,15 +2,21 @@
 
 require_relative 'item_url'
 
+# This Widget simply contains a list of items. It also gives
+# the items their complex behaviour when clicked.
 class Shoes::OptionsList < Shoes::Widget
 	attr_reader :list
 
+	# you may give this widget an array of strings to
+	# show when rendered first. 
 	def initialize start_list=[]
 		@list = start_list
-		@main = stack width: 300, height: 680, scroll: true
+		@main = stack width: 300, height: 630, scroll: true
 		draw_normal start_list
 	end
 
+	# the core drawing method. expects an array of strings
+	# to draw all the items.
 	def draw_normal list=[]
 		@list = list
 		@main.clear do
@@ -21,6 +27,7 @@ class Shoes::OptionsList < Shoes::Widget
 		end #main.clear
 	end
 
+	# a programmatic atom bomb. needs to be refactored!
 	def render_and_save name, thumbnail=nil
 		Thread.new {
 			return false if $app.is_working
@@ -67,6 +74,10 @@ class Shoes::OptionsList < Shoes::Widget
 				$widgets.status_bar.set 0.9
 				$widgets.mind_map.draw_normal $app.current_mind_map
 				
+				# easter eggs
+				$widgets.mind_map.draw_pony_screen if name =~ /my little pony/i
+				$widgets.mind_map.draw_pony_screen if name =~ /mein kleines pony/i
+
 				# Successful
 				$widgets.status_bar.write "ready!"
 				$widgets.status_bar.set 1.0
