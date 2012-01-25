@@ -4,19 +4,28 @@
 		%title WikiMap 1.0
 		%link{type:"text/css",href:"styles.css",rel:"stylesheet"}
 		%link{type:"text/css",href:"css/start/jquery-ui.css",rel:"stylesheet"}
+		%link{type:"text/css",href:"css/jcloud.css",rel:"stylesheet"}
 		%script{type:"text/javascript",src:"js/jquery.js"}
 		%script{type:"text/javascript",src:"js/jquery-ui.js"}
+		%script{type:"text/javascript",src:"js/jcloud.js"}
 		%script{type:"text/javascript",src:"main.js"}
 	%body
-		#titlebar
-			%input#search{type:"text"}
-			%button{onclick:"wiki_ask()"} Search this!
-		#statusbar
-			progress stuff here!
-		#contentbox
-			#options_list
-				rjkghfsoad
-			#mindmap
-				eiufdshjl
-			#clearfloat
-				&nbsp;
+		#content
+			#header.ui-corner-top
+				#header_left.ui-corner-right
+					&lt;&lt; about
+				#header_center
+					%h1 WikiMap 1.0
+				#header_right.ui-corner-left
+					&gt;&gt; download for Desktop
+				#header_clear
+			#content_bg.ui-corner-bottom
+				#titlebar.ui-corner-all
+					Enter Search Phrase: 
+					%input#search{type:"text",size:50}
+					%button{onclick:"wiki_ask()"} Search this!
+				#contentbox
+					#options_list.ui-corner-all
+						rjkghfsoad
+					#mindmap.ui-corner-all
+						eiufdshjl

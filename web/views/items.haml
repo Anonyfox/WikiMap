@@ -1,5 +1,5 @@
 - # encoding: utf-8
-%ul
-	- @items.each do |item|
-		%li
-			%span.link_style{onclick:"wiki_get('#{item}')"}= item
+%h3= "Links found (#{@items.size}):"
+- @items.each do |item|
+		%span.link_style{onclick:"wiki_get('#{item}')"}= item
+		&nbsp;
