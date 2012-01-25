@@ -42,6 +42,7 @@ module WikiClient
 
 		graph.edge_attributes = {"arrowhead" => "vee"}
 		graph.graph_attributes = {"bgcolor"=>"transparent"}
+		graph.node_attributes = {"color" => "white", "style" => "filled"}
 		
 		# normalize phrase
 		rphrase = phrase.gsub(/\W/, '_')
