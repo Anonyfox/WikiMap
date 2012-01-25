@@ -17,33 +17,14 @@ class Shoes::TitleBar < Shoes::Widget
 	# elements. You may set a default text for the search-line.
 	def draw_normal start_string=nil
 		@main.clear do
-			button("<<") do
-				if $app.searched == []
-					@search_text = ""
-				else
-					hash = $app.searched.pop
-					@search_text = hash[:phrase]
-					@line.text = @search_text
-					$app.is_back_search = true
-					if hash[:thumbnail] == $widgets.mind_map.welcome_image
-						process_search
-					else
-						$widgets.options_list.render_and_save @search_text, hash[:thumbnail]
-					end #if
-				end #if
-			end #button "<<"
+			button("<<") { turn_back }
 			@line = edit_line(width: 300, text: @search_text) { @search_text = @line.text }
 			button("search!") { process_search }
 			button("Random"){ draw_search_results WikiClient.random_pages }
-			button("export mindmap") { export_mindmap }
-			button("Show in Browser") { visit Phrases.url( $app.searched_last[:phrase]) }
+			button("export mindmap") { $app.export_mindmap }
+			button("Show in Browser") { visit Phrases.url( $app.current_search[:phrase]) }
 			button("about") { alert Phrases.about }
 		end #main.clear
-	end
-
-	# Search for a given string
-	def lookup_text
-		$app.controller.search_matching_links_to @search_text
 	end
 
 	# print search_results to optionlist
@@ -51,36 +32,19 @@ class Shoes::TitleBar < Shoes::Widget
 		$widgets.options_list.draw_normal items
 		$widgets.mind_map.draw_welcome_screen
 	end
-
-	# render the full-screen MindMap to a target file.
-	def export_mindmap
-		return false if $app.searched_last == {}
-		return false if $app.searched_last[:thumbnail] == $widgets.mind_map.welcome_image
-		target_file = ask_save_file
-		return false unless target_file && target_file != ""
-		$app.controller.render(
-			$app.searched_last[:phrase],
-			$app.controller.look_for($app.searched_last[:phrase]),
-			target_file,
-			false
-		)
+	
+	# Search links with the help of the correspondending search string in the search bar
+	def lookup_text
+		$app.data_controller.search_matching_links_to @search_text
 	end
 
 	# refresh search results
 	def process_search
+		# stores the last search results
+		$app.save_last_request
+		# Draw List
 		draw_search_results lookup_text
-		save_last_search
-	end
-
-	# stores the last search results
-	def save_last_search
-		# Check if Back-Button is pressed
-		unless $app.is_back_search
-			# Push the last search and thumbnail to stack
-			$app.searched << $app.searched_last if $app.searched_last != {}	
-		end
-		$app.is_back_search = false
-		$app.searched_last = { phrase: @search_text, thumbnail: $widgets.mind_map.welcome_image }
+		$app.current_search = { phrase: @search_text, thumbnail: nil }
 	end
 
 	# update the text into the search-line
@@ -91,5 +55,18 @@ class Shoes::TitleBar < Shoes::Widget
 	# set the application focus to the search-line
 	def set_focus
 		@line.focus
+	end
+
+	# pop the item form the history and let it show
+	def turn_back
+		search = $app.get_last_request
+		write search[:phrase]
+		$app.is_back_search = true
+		if search[:thumbnail]
+			$app.current_search = search
+			$widgets.options_list.start_progression @search_text
+		else
+			process_search	
+		end #if
 	end
 end

@@ -21,75 +21,84 @@ class Shoes::OptionsList < Shoes::Widget
 		@list = list
 		@main.clear do
 			caption "Choose: (#{list.length})", align: "center"
-			@list.each do |name| 
-				item_url(name){ render_and_save name }
+			@list.each do |phrase| 
+				item_url(phrase){ start_progression phrase }
 			end
 		end #main.clear
 	end
 
 	# a programmatic atom bomb. needs to be refactored!
-	def render_and_save name, thumbnail=nil
-		Thread.new {
-			return false if $app.is_working
-			$widgets.status_bar.write "lookup wikipedia..."
+	def start_progression phrase
+		return false if $app.is_working
+
+		Thread.new {			
 			# Lock User Interactions
 			$app.is_working = true
-			# Check if Back-Button is pressed
-			unless $app.is_back_search
-				# Push the last search and thumbnail to stack
-				$app.searched << $app.searched_last if $app.searched_last != {}
-			end
-			$app.is_back_search = false
-			# if thumbnail not given => create path
-			unless thumbnail
-				$app.ressource_thumbnail_path[1] = $app.image_counter
-				$app.current_mind_map = $app.ressource_thumbnail_path.join("")
-			else
-				$app.current_mind_map = thumbnail
-			end
-			# Write current search and Thumbnail for next search to variable
-			$app.searched_last = { phrase: name, thumbnail: $app.current_mind_map }
+			# Save Last Search
+			$app.save_last_request	
+			# Write current search and Thumbnail
+			$app.current_search = { phrase: phrase, thumbnail: $app.current_search[:thumbnail] }
 			# Write the current phrase to search-edit-line
-			$widgets.title_bar.write name
+			$widgets.title_bar.write phrase
 			# Draw wait Screen
 			$widgets.mind_map.draw_wait_screen
-			$widgets.status_bar.set 0.1
-			response = $app.controller.look_for name
-			if response
-				# Print Link List
-				$widgets.status_bar.write "interpreting responses..."
-				$widgets.status_bar.set 0.3
-				$widgets.options_list.draw_normal response
-				
-				# Create Thumbnail
-				$widgets.status_bar.write "rendering mindmap..."
-				$widgets.status_bar.set 0.6
-				unless thumbnail
-					$app.image_counter += 1
-					$app.controller.render name, response, $app.current_mind_map
-				end
 
-				# Draw Mindmap
-				$widgets.status_bar.write "loading new mindmap..."
-				$widgets.status_bar.set 0.9
-				$widgets.mind_map.draw_normal $app.current_mind_map
-				
-				# easter eggs
-				$widgets.mind_map.draw_pony_screen if name =~ /my little pony/i
-				$widgets.mind_map.draw_pony_screen if name =~ /mein kleines pony/i
-
-				# Successful
-				$widgets.status_bar.write "ready!"
-				$widgets.status_bar.set 1.0
-			else #nothing found
-				$widgets.status_bar.write "nothing found. try something else!"
-				$widgets.status_bar.set 1.0
-				$widgets.mind_map.draw_error_screen
-				$widgets.options_list.draw_normal []
+			links = lookup_wikipedia_with phrase
+			if links
+				create_options_list_with links			
+				create_thumbnail_with phrase, links
+				draw_mindmap			
+				check_easter_egg phrase
+				success
+			else
+				nothing_found
 			end
-
 			# Unlock Userinteractions
 			$app.is_working = false
 		}
+	end
+
+	def lookup_wikipedia_with phrase
+		$widgets.status_bar.set 0.1
+		$widgets.status_bar.write "lookup wikipedia..."
+		$app.data_controller.look_for phrase
+	end
+
+	def create_options_list_with links
+		$widgets.status_bar.write "interpreting responses..."
+		$widgets.status_bar.set 0.3
+		$widgets.options_list.draw_normal links
+	end
+
+	def create_thumbnail_with phrase, links
+		$widgets.status_bar.write "rendering mindmap..."
+		$widgets.status_bar.set 0.6
+		unless $app.current_search[:thumbnail]
+			thumb =  $app.data_controller.render_thumbnail phrase, links
+			$app.current_search[:thumbnail] = thumb
+		end
+	end
+
+	def draw_mindmap
+		$widgets.status_bar.write "loading new mindmap..."
+		$widgets.status_bar.set 0.9
+		$widgets.mind_map.draw_normal $app.current_search[:thumbnail]
+	end
+
+	def check_easter_egg phrase
+		$widgets.mind_map.draw_pony_screen if phrase =~ /my little pony/i
+		$widgets.mind_map.draw_pony_screen if phrase =~ /mein kleines pony/i
+	end
+
+	def success
+		$widgets.status_bar.write "ready!"
+		$widgets.status_bar.set 1.0
+	end
+
+	def nothing_found
+		$widgets.status_bar.write "nothing found. try something else!"
+		$widgets.status_bar.set 1.0
+		$widgets.mind_map.draw_error_screen
+		$widgets.options_list.draw_normal []
 	end
 end

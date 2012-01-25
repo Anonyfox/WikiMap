@@ -4,6 +4,7 @@ require 'json'
 require 'open-uri'
 require 'uri'
 require_relative 'graph-viz-simple'
+require 'fileutils'
 
 # This standalone Module builds the correct URLs for requesting
 # wikipedia, and implements the full http request to get the 
@@ -33,42 +34,74 @@ module WikiClient
 		self.random_links JSON(h)
 	end
 
-	# needs much refactoring love!
-	def self.output phrase, links=[], destination=nil, thumbnail=true
-		destination ||= "my_graph_0.png"
-		graph = GraphvizSimple.new("MindMap")
+	# return destination Path
+	def self.generate_thumbnail phrase, links=[]	
+		destination = ""
 
-		graph.edge_attributes = {"arrowhead" => "vee"}
-		graph.graph_attributes = {"bgcolor"=>"transparent"}
-		graph.node_attributes = {"color" => "white", "style" => "filled"}
-		
+		# Destination Operations
+		Dir.mkdir "#{ENV["HOME"]}/.wikimap/tmp" unless Dir.exists? "#{ENV["HOME"]}/.wikimap/tmp"
+		filearray = Dir.entries "#{ENV["HOME"]}/.wikimap/tmp"
+		destination = "#{ENV["HOME"]}/.wikimap/tmp/my_graph_#{filearray.size - 2}.png"
+
+		mygraph = self.graph({
+			phrase: phrase, 
+			links: links, 
+			graph: {"bgcolor" => "transparent", "size" => 6.25}, 
+			node: {"color" => "white", "style" => "filled"}, 
+			edge: {"arrowhead" => "vee"}
+		})
+		mygraph.output destination, "png", "fdp"
+
+		destination
+	end
+
+	def self.generate_picture phrase, links=[], destination
+		mygraph = self.graph({
+			phrase: phrase, 
+			links: links, 
+			graph: {"bgcolor" => "transparent"}, 
+			node: {"color" => "white", "style" => "filled"}, 
+			edge: {"arrowhead" => "vee"}
+		})
+		mygraph.output destination, "png", "fdp"
+	end
+
+	def self.clear_tmp_directory
+		FileUtils.remove_dir "#{ENV["HOME"]}/.wikimap/tmp", true
+	end
+
+private
+
+	def self.graph params={}
+		phrase = params[:phrase] || "phrase"
+		links = params[:links] || []
+		graph_name = params[:name] || "MindMap"
+
+		graph = GraphvizSimple.new(graph_name)
+
+		graph.graph_attributes = params[:graph] || {}
+		graph.node_attributes = params[:node] || {}
+		graph.edge_attributes = params[:edge] || {}
+
 		# normalize phrase
 		rphrase = phrase.gsub(/\W/, '_')
 		rphrase.gsub!(/\A(\w)/) { "_#{$1}" }
 
 		# Add nodes and edges
 		graph.add_node rphrase, {"label" => phrase} #root
-		links.delete rphrase # no self links
+
 		links.uniq.each do |link|
 			rlink = link.gsub(/\W/, '_')
 			rlink.gsub!(/\A(\w)/) { "_#{$1}" }
-			# Add nodes
-			begin
+			if rlink != rphrase
+				# Add nodes
 				graph.add_node rlink, {"label" => link}
 				graph.add_edge rphrase, rlink
-			rescue => e
-				debug e
 			end
 		end
 
-		if thumbnail
-			graph.graph_attributes= {"size" => 6.25}
-		end
-
-		graph.output destination, "png", "fdp"
+		graph
 	end
-
-private
 
 	# build a valid request-url with the given string. this url
 	# should be used to find matching topics to the given string

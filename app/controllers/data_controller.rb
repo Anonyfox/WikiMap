@@ -10,6 +10,7 @@ class DataController
 		Dir.mkdir @path unless Dir.exists? @path
 		Dir.mkdir @path+"/tmp" unless Dir.exists? @path+"/tmp"
 		@db = Kioku.new @path + "/wikimap.db"
+		clear_temps
 	end
 
 	# get a list of possible links similar to the given name
@@ -35,9 +36,19 @@ class DataController
 		answer || []
 	end
 
-	# wrapper for the original output method.
-	def render root, links, destination, thumb=true
-		WikiClient.output root, links, destination, thumb
+	# produce an orginal mindmap export image in fileformat 'png'
+	def render_picture root, links, destination
+		WikiClient.generate_picture root, links, destination
+	end
+
+	# produce an compatible application resized thumbnail of the current mindmap
+	def render_thumbnail root, links
+		WikiClient.generate_thumbnail root, links
+	end
+
+	# clear all temp files in HOME/.wikimap/tmp directory
+	def clear_temps
+		WikiClient.clear_tmp_directory
 	end
 
 	# simply checks if internet is available by pinging google.com

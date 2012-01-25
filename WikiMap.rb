@@ -16,17 +16,9 @@ Shoes.app title:"WikiMap", height:700, width: 1000, resizable: false do
 		# Create global OpenStructs
 		$app = OpenStruct.new
 		$widgets = OpenStruct.new
-
-		# prepare the data and internetz stuff
-		$app.controller = DataController.new
-		$app.searched_last = {} 	# current searchstring
-		$app.searched = []
-		$app.is_working = false
-		$app.image_counter = 0
-		$app.ressource_thumbnail_path = Array.new
-		$app.ressource_thumbnail_path << ENV['HOME']+"/.wikimap/tmp/my_graph_" << $app.image_counter << ".png"
-		$app.current_mind_map 		# current image path
-		$app.is_back_search = false
+		
+		# Initialize new Shoes Controller
+		$app = ShoesController.new
 
 		# initialize the ui-elements
 		stack do
