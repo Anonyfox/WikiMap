@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function wiki_ask() {
 	var query = $('#search').val();
-	$.get("/ask?query="+query, function (data) {
+	$.get("/ask?query="+encodeURI(query), function (data) {
 		$('#options_list').html(data);
 	})
 }

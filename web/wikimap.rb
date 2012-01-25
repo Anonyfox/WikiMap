@@ -11,7 +11,7 @@ get '/' do
 end
 
 get '/ask' do
-	@items = WikiClient.ask params["query"]
+	@items = WikiClient.ask URI.decode(params["query"])
 	haml :items
 end
 
