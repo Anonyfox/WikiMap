@@ -80,4 +80,5 @@ body {
 .link_style {
 	color: #0000ff;
 	text-decoration: underline;
+	cursor: pointer;
 }
