@@ -49,7 +49,7 @@ module WikiClient
 			phrase: phrase, 
 			links: links, 
 			graph: {"bgcolor" => "transparent", "size" => 6.25, "outputorder" => "edgesfirst"}, 
-			node: {"color" => "white", "style" => "filled"}, 
+			node: {"color" => "#f0f0f0", "style" => "filled"}, 
 			edge: {"arrowhead" => "vee"}
 		})
 		mygraph.output destination, "png", "fdp"
@@ -64,7 +64,7 @@ module WikiClient
 			phrase: phrase, 
 			links: links, 
 			graph: {"bgcolor" => "white", "outputorder" => "edgesfirst"}, 
-			node: {"color" => "white", "style" => "filled"}, 
+			node: {"color" => "#f0f0f0", "style" => "filled"}, 
 			edge: {"arrowhead" => "vee"}
 		})
 		mygraph.output destination, "png", "fdp"
