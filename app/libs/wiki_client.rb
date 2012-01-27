@@ -31,7 +31,9 @@ module WikiClient
 	# just returns some random pages of wikipedia
 	def self.random_pages
 		h = open("http://de.wikipedia.org/w/api.php?action=query&format=json&list=random&rnlimit=10").read
-		self.random_links JSON(h)
+		links = self.random_links JSON(h)
+		debug links
+		links.select { |link| !(link =~ /:/) }
 	end
 
 	# return destination Path

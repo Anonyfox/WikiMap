@@ -18,6 +18,7 @@ class DataController
 		answer = nil
 		if internet_available?
 			answer = WikiClient.ask name
+			answer.select! { |link| !(link =~ /:/) }
 		else
 			answer = @db.search name
 		end
@@ -29,6 +30,7 @@ class DataController
 		answer = nil
 		if internet_available?
 			answer = WikiClient.get name
+			answer.select! { |link| !(link =~ /:/) }
 			@db[name] = answer
 		else
 			answer = @db[name]
