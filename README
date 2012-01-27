@@ -2,7 +2,8 @@ Das Repo zum WikiMap (Wikipedia Mindmap). Projektverwaltung findet im Redmine st
 
 Kurze Erklärung zu der Ordnerhierarchie: 
 
-/app/  				-   hier liegt die eigentliche Anwendung. Strukturiert in der MVC-Architektur !
+/app/  				-   hier liegt die eigentliche Anwendung. 
+						Strukturiert in der MVC-Architektur !
 /app/libs/   		-   Der Platz für verwendete Bibliotheken.
 /app/controllers/	-	Alle Controller die für die Kontrolle des Programmflusses.
 /app/views/			- 	Alle Views von Shoes.
@@ -12,12 +13,14 @@ Kurze Erklärung zu der Ordnerhierarchie:
 
 Starten der Anwendung:
 
-- Herunterladen und installieren des Programmes 'Shoes' http://github.com/shoes/shoes/wiki .
-- Die Datei WikiMap.rb im Hauptverzeichnis mittels dem Kommando: ´shoes WikiMap.rb´ starten.
+- Herunterladen und installieren des Programmes 
+  'Shoes' http://github.com/shoes/shoes/wiki .
+- Die Datei WikiMap.rb im Hauptverzeichnis  mittels dem Kommando: 
+  ´shoes WikiMap.rb´ starten.
 - Have Fun!
 
 Starten der Web Version:
 
-- Das Kommando: ruby wikimap.rb im Verzeichnis /web/ ausführen.
+- Das Kommando: ´ruby wikimap.rb´ im Verzeichnis /web/ ausführen.
 - Anschließend im Browser zur Adresse: 127.0.0.1:4567 navigieren.
 - Have Fun!
