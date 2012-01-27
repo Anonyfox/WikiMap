@@ -1,14 +1,15 @@
-Wed, 25 Jan 2012 15:46:20 +0100
-./web/wikimap.rb	Tue, 24 Jan 2012 20:02:54 +0100
-./README	Fri, 11 Nov 2011 12:22:39 +0100
-./WikiMap.rb	Sat, 21 Jan 2012 15:08:13 +0100
-./app/controllers/data_controller.rb	Sat, 21 Jan 2012 15:27:49 +0100
-./app/controllers/phrases.rb	Sat, 21 Jan 2012 15:04:09 +0100
-./app/views/mind_map.rb	Sat, 21 Jan 2012 14:48:01 +0100
-./app/views/status_bar.rb	Sat, 21 Jan 2012 11:56:33 +0100
-./app/views/item_url.rb	Sat, 21 Jan 2012 15:12:03 +0100
-./app/views/options_list.rb	Sat, 21 Jan 2012 16:31:43 +0100
-./app/views/title_bar.rb	Sat, 21 Jan 2012 14:59:08 +0100
-./app/libs/wiki_client.rb	Sat, 21 Jan 2012 15:27:06 +0100
-./app/libs/graph-viz-simple.rb	Tue, 17 Jan 2012 11:39:25 +0100
-./test/test.rb	Mon, 24 Oct 2011 11:27:07 +0200
+Fri, 27 Jan 2012 14:15:49 +0100
+./WikiMap.rb	Fri, 27 Jan 2012 14:14:06 +0100
+./web/wikimap.rb	Wed, 25 Jan 2012 20:34:49 +0100
+./README	Mon, 09 Jan 2012 23:49:36 +0100
+./app/views/mind_map.rb	Wed, 25 Jan 2012 15:50:28 +0100
+./app/views/status_bar.rb	Wed, 25 Jan 2012 15:50:28 +0100
+./app/views/options_list.rb	Fri, 27 Jan 2012 14:15:40 +0100
+./app/views/title_bar.rb	Fri, 27 Jan 2012 14:08:29 +0100
+./app/views/item_url.rb	Wed, 25 Jan 2012 15:50:28 +0100
+./app/libs/graph-viz-simple.rb	Mon, 09 Jan 2012 23:49:36 +0100
+./app/libs/wiki_client.rb	Fri, 27 Jan 2012 13:56:37 +0100
+./app/controllers/data_controller.rb	Fri, 27 Jan 2012 13:42:54 +0100
+./app/controllers/phrases.rb	Wed, 25 Jan 2012 15:50:28 +0100
+./app/controllers/shoes_controller.rb	Fri, 27 Jan 2012 14:10:14 +0100
+./test/test.rb	Mon, 09 Jan 2012 23:49:36 +0100

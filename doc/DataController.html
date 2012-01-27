@@ -1,394 +1,414 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+
+<html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-	<title>Class: DataController</title>
+<title>Class: DataController</title>
 
-	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
 
-</head>
-<body class="class">
-
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="./index.html">Home</a>
-          <a href="./index.html#classes">Classes</a>
-          <a href="./index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
-
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="./app/controllers/data_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/controllers/data_controller.rb">app/controllers/data_controller.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
-
-			
-		</div>
-
-		<div id="class-metadata">
-
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link">Object</p>
-				
-			</div>
-			
-
-			<!-- Namespace Contents -->
-			
-
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-c-new">::new</a></li>
-					
-					<li><a href="#method-i-internet_available%3F">#internet_available?</a></li>
-					
-					<li><a href="#method-i-look_for">#look_for</a></li>
-					
-					<li><a href="#method-i-render">#render</a></li>
-					
-					<li><a href="#method-i-search_matching_links_to">#search_matching_links_to</a></li>
-					
-				</ul>
-			</div>
-			
-
-			<!-- Included Modules -->
-			
-		</div>
-
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./README.html">README</a></li>
-				
-				</ul>
-			</div>
-			
-
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
-
-				<ul class="link-list">
-				
-					<li><a href="./Shoes.html">Shoes</a></li>
-				
-					<li><a href="./Shoes/ItemUrl.html">Shoes::ItemUrl</a></li>
-				
-					<li><a href="./Shoes/MindMap.html">Shoes::MindMap</a></li>
-				
-					<li><a href="./Shoes/OptionsList.html">Shoes::OptionsList</a></li>
-				
-					<li><a href="./Shoes/StatusBar.html">Shoes::StatusBar</a></li>
-				
-					<li><a href="./Shoes/TitleBar.html">Shoes::TitleBar</a></li>
-				
-					<li><a href="./DataController.html">DataController</a></li>
-				
-					<li><a href="./GraphvizSimple.html">GraphvizSimple</a></li>
-				
-					<li><a href="./Phrases.html">Phrases</a></li>
-				
-					<li><a href="./WikiClient.html">WikiClient</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
-
-			
-		</div>
-	</div>
-
-	<div id="documentation">
-		<h1 class="class">DataController</h1>
-
-		<div id="description">
-			<p>
-encoding: utf-8
-</p>
-
-		</div>
-
-		<!-- Constants -->
-		
-
-		<!-- Attributes -->
-		
-
-		<!-- Methods -->
-		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
-
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-c-new"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-the <a href="DataController.html">DataController</a> handles all the
-loading/storing stuff. very easy.
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="new-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/data_controller.rb, line 6</span>
- 6:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
- 7:                 <span class="ruby-identifier">require</span> <span class="ruby-value str">'kioku'</span> <span class="ruby-comment cmt">#check out this awesome gem at rubygems.org ;)</span>
- 8:                 <span class="ruby-identifier">require_relative</span> <span class="ruby-value str">'../libs/wiki_client'</span>
- 9:                 <span class="ruby-ivar">@path</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'HOME'</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/.wikimap&quot;</span>
-10:                 <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@path</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-ivar">@path</span>
-11:                 <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@path</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;/tmp&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-ivar">@path</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;/tmp&quot;</span>
-12:                 <span class="ruby-ivar">@db</span> = <span class="ruby-constant">Kioku</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/wikimap.db&quot;</span>
-13:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
-
-		
-			<div id="internet-available--method" class="method-detail ">
-				<a name="method-i-internet_available%3F"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">internet_available?</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-simply checks if internet is available by pinging google.com
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="internet-available--source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/data_controller.rb, line 44</span>
-44:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">internet_available?</span>
-45:                 <span class="ruby-identifier">require</span> <span class="ruby-value str">'net/ping/http'</span>
-46:                 <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">Ping</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;http://www.google.com&quot;</span>).<span class="ruby-identifier">ping?</span>
-47:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="look-for-method" class="method-detail ">
-				<a name="method-i-look_for"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">look_for</span><span
-						class="method-args">(name)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-returns the requested data for the given name
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="look-for-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/data_controller.rb, line 27</span>
-27:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">look_for</span> <span class="ruby-identifier">name</span>
-28:                 <span class="ruby-identifier">answer</span> = <span class="ruby-keyword kw">nil</span>
-29:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">internet_available?</span>
-30:                         <span class="ruby-identifier">answer</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">name</span>
-31:                         <span class="ruby-ivar">@db</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">answer</span>
-32:                 <span class="ruby-keyword kw">else</span>
-33:                         <span class="ruby-identifier">answer</span> = <span class="ruby-ivar">@db</span>[<span class="ruby-identifier">name</span>]
-34:                 <span class="ruby-keyword kw">end</span>
-35:                 <span class="ruby-identifier">answer</span> <span class="ruby-operator">||</span> []
-36:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="render-method" class="method-detail ">
-				<a name="method-i-render"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">render</span><span
-						class="method-args">(root, links, destination, thumb=true)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-wrapper for the original output method.
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="render-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/data_controller.rb, line 39</span>
-39:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">thumb</span>=<span class="ruby-keyword kw">true</span>
-40:                 <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">output</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">thumb</span>
-41:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="search-matching-links-to-method" class="method-detail ">
-				<a name="method-i-search_matching_links_to"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">search_matching_links_to</span><span
-						class="method-args">(name)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-get a list of possible links similar to the given name
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="search-matching-links-to-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/data_controller.rb, line 16</span>
-16:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_matching_links_to</span> <span class="ruby-identifier">name</span>
-17:                 <span class="ruby-identifier">answer</span> = <span class="ruby-keyword kw">nil</span>
-18:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">internet_available?</span>
-19:                         <span class="ruby-identifier">answer</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">ask</span> <span class="ruby-identifier">name</span>
-20:                 <span class="ruby-keyword kw">else</span>
-21:                         <span class="ruby-identifier">answer</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">search</span> <span class="ruby-identifier">name</span>
-22:                 <span class="ruby-keyword kw">end</span>
-23:                 <span class="ruby-identifier">answer</span> <span class="ruby-operator">||</span> []
-24:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
-
-	</div>
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
 
 
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
 
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
 
-</body>
-</html>
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/data_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-clear_temps">#clear_temps</a>
+    
+    <li><a href="#method-i-internet_available-3F">#internet_available?</a>
+    
+    <li><a href="#method-i-look_for">#look_for</a>
+    
+    <li><a href="#method-i-render_picture">#render_picture</a>
+    
+    <li><a href="#method-i-render_thumbnail">#render_thumbnail</a>
+    
+    <li><a href="#method-i-search_matching_links_to">#search_matching_links_to</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Shoes.html">Shoes</a>
+  
+    <li><a href="./Shoes/ItemUrl.html">Shoes::ItemUrl</a>
+  
+    <li><a href="./Shoes/MindMap.html">Shoes::MindMap</a>
+  
+    <li><a href="./Shoes/OptionsList.html">Shoes::OptionsList</a>
+  
+    <li><a href="./Shoes/StatusBar.html">Shoes::StatusBar</a>
+  
+    <li><a href="./Shoes/TitleBar.html">Shoes::TitleBar</a>
+  
+    <li><a href="./DataController.html">DataController</a>
+  
+    <li><a href="./GraphvizSimple.html">GraphvizSimple</a>
+  
+    <li><a href="./Phrases.html">Phrases</a>
+  
+    <li><a href="./ShoesController.html">ShoesController</a>
+  
+    <li><a href="./WikiClient.html">WikiClient</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class DataController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>the <a href="DataController.html">DataController</a> handles all the
+loading/storing stuff. very easy.</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">'kioku'</span> <span class="ruby-comment">#check out this awesome gem at rubygems.org ;)</span>
+        <span class="ruby-identifier">require_relative</span> <span class="ruby-string">'../libs/wiki_client'</span>
+        <span class="ruby-ivar">@path</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">'HOME'</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/.wikimap&quot;</span>
+        <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@path</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-ivar">@path</span>
+        <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@path</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/tmp&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-ivar">@path</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/tmp&quot;</span>
+        <span class="ruby-ivar">@db</span> = <span class="ruby-constant">Kioku</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/wikimap.db&quot;</span>
+        <span class="ruby-identifier">clear_temps</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-clear_temps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_temps</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>clear all temp files in HOME/.wikimap/tmp directory</p>
+          
+
+          
+          <div class="method-source-code" id="clear_temps-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_temps</span>
+        <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">clear_tmp_directory</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear_temps-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear_temps-method -->
+
+    
+      <div id="method-i-internet_available-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internet_available?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>simply checks if internet is available by pinging google.com</p>
+          
+
+          
+          <div class="method-source-code" id="internet_available-3F-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">internet_available?</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">'net/ping/http'</span>
+        <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">Ping</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;http://www.google.com&quot;</span>).<span class="ruby-identifier">ping?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- internet_available-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- internet_available-3F-method -->
+
+    
+      <div id="method-i-look_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">look_for</span><span
+            class="method-args">(name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns the requested data for the given name exclude all links that math a
+‘:’-Character</p>
+          
+
+          
+          <div class="method-source-code" id="look_for-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">look_for</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-identifier">answer</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">internet_available?</span>
+                <span class="ruby-identifier">answer</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">name</span>
+                <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">select!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">link</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/:/</span>) }
+                <span class="ruby-ivar">@db</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">answer</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">answer</span> = <span class="ruby-ivar">@db</span>[<span class="ruby-identifier">name</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">answer</span> <span class="ruby-operator">||</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- look_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- look_for-method -->
+
+    
+      <div id="method-i-render_picture" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render_picture</span><span
+            class="method-args">(root, links, destination)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>produce an orginal mindmap export image in fileformat ‘png’</p>
+          
+
+          
+          <div class="method-source-code" id="render_picture-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render_picture</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">destination</span>
+        <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">generate_picture</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">destination</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- render_picture-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- render_picture-method -->
+
+    
+      <div id="method-i-render_thumbnail" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render_thumbnail</span><span
+            class="method-args">(root, links)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>produce an compatible application resized thumbnail of the current mindmap</p>
+          
+
+          
+          <div class="method-source-code" id="render_thumbnail-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render_thumbnail</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>
+        <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">generate_thumbnail</span> <span class="ruby-identifier">root</span>, <span class="ruby-identifier">links</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- render_thumbnail-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- render_thumbnail-method -->
+
+    
+      <div id="method-i-search_matching_links_to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_matching_links_to</span><span
+            class="method-args">(name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get a list of possible links similar to the given name exclude all links
+that math a ‘:’-Character</p>
+          
+
+          
+          <div class="method-source-code" id="search_matching_links_to-source">
+            <pre><span class="ruby-comment"># File app/controllers/data_controller.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_matching_links_to</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-identifier">answer</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">internet_available?</span>
+                <span class="ruby-identifier">answer</span> = <span class="ruby-constant">WikiClient</span>.<span class="ruby-identifier">ask</span> <span class="ruby-identifier">name</span>
+                <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">select!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">link</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/:/</span>) }
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">answer</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">search</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">answer</span> <span class="ruby-operator">||</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search_matching_links_to-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search_matching_links_to-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.11.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
 

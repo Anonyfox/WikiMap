@@ -9,7 +9,6 @@ require 'fileutils'
 # This standalone Module builds the correct URLs for requesting
 # wikipedia, and implements the full http request to get the 
 # results. 
-# 
 module WikiClient
 
 	# Request the given URL, get the page content, format the
@@ -28,7 +27,7 @@ module WikiClient
 		self.response_links JSON(h)
 	end
 
-	# just returns some random pages of wikipedia
+	# just returns some random pages of wikipedia.
 	def self.random_pages
 		h = open("http://de.wikipedia.org/w/api.php?action=query&format=json&list=random&rnlimit=10").read
 		links = self.random_links JSON(h)
@@ -36,7 +35,8 @@ module WikiClient
 		links.select { |link| !(link =~ /:/) }
 	end
 
-	# return destination Path
+	# Generate a Thumbnail from 'links' around a root node 'phrase'.
+	# returns the destination Path.
 	def self.generate_thumbnail phrase, links=[]	
 		destination = ""
 
@@ -57,6 +57,7 @@ module WikiClient
 		destination
 	end
 
+	# Generate a exportable picture from 'links' around a root node 'phrase'.
 	def self.generate_picture phrase, links=[], destination
 		mygraph = self.graph({
 			phrase: phrase, 
@@ -68,12 +69,16 @@ module WikiClient
 		mygraph.output destination, "png", "fdp"
 	end
 
+	# Clear all temp-files in tmp-directory.
+	# this function shoeld be called once in the initialization-phase.
 	def self.clear_tmp_directory
 		FileUtils.remove_dir "#{ENV["HOME"]}/.wikimap/tmp", true
 	end
 
 private
 
+	# Create a MindMap (or Graph) with a root node 'phrase' and chield-nodes 'links'.
+	# The visual appearance can modify with graph, node and edge attributes.
 	def self.graph params={}
 		phrase = params[:phrase] || "phrase"
 		links = params[:links] || []

@@ -27,20 +27,18 @@ class Shoes::OptionsList < Shoes::Widget
 		end #main.clear
 	end
 
-	# a programmatic atom bomb. needs to be refactored!
+	# Calculate and display the progress to produce a thumbnail 
+	# from a given phrase.
 	def start_progression phrase
 		return false if $app.is_working
 
 		Thread.new {			
 			# Lock User Interactions
 			$app.is_working = true
-			# Save Last Search
+
 			$app.save_last_request	
-			# Write current search and Thumbnail
 			$app.current_search = { phrase: phrase, thumbnail: $app.current_search[:thumbnail] }
-			# Write the current phrase to search-edit-line
 			$widgets.title_bar.write phrase
-			# Draw wait Screen
 			$widgets.mind_map.draw_wait_screen
 
 			links = lookup_wikipedia_with phrase
@@ -53,23 +51,29 @@ class Shoes::OptionsList < Shoes::Widget
 			else
 				nothing_found
 			end
+
 			# Unlock Userinteractions
 			$app.is_working = false
 		}
 	end
 
+private
+
+	# A progress-step to ask for links in the current page with name 'phrase'.
 	def lookup_wikipedia_with phrase
 		$widgets.status_bar.set 0.1
 		$widgets.status_bar.write "lookup wikipedia..."
 		$app.data_controller.look_for phrase
 	end
 
+	# A progress-step to display all links in OptionList-View.
 	def create_options_list_with links
 		$widgets.status_bar.write "interpreting responses..."
 		$widgets.status_bar.set 0.3
 		$widgets.options_list.draw_normal links
 	end
 
+	# A progress-step to create a thumnail.
 	def create_thumbnail_with phrase, links
 		$widgets.status_bar.write "rendering mindmap..."
 		$widgets.status_bar.set 0.6
@@ -79,24 +83,29 @@ class Shoes::OptionsList < Shoes::Widget
 		end
 	end
 
+	# A progress-step to show the generated thumbnail.
 	def draw_mindmap
 		$widgets.status_bar.write "loading new mindmap..."
 		$widgets.status_bar.set 0.9
 		$widgets.mind_map.draw_normal $app.current_search[:thumbnail]
 	end
 
+	# A special and optional progress-step to show the easteregg.
+	# Check it out!
 	def check_easter_egg phrase
 		$widgets.mind_map.draw_pony_screen if phrase =~ /my little pony/i
 		$widgets.mind_map.draw_pony_screen if phrase =~ /mein kleines pony/i
 	end
 
+	# The last progress-step that complete the whole progression.
 	def success
-		$widgets.status_bar.write "ready!"
+		$widgets.status_bar.write "Ready!"
 		$widgets.status_bar.set 1.0
 	end
 
+	# An alternativ last prgress step, if the 'link'-list is empty.
 	def nothing_found
-		$widgets.status_bar.write "nothing found. try something else!"
+		$widgets.status_bar.write "Nothing found. try something else!"
 		$widgets.status_bar.set 1.0
 		$widgets.mind_map.draw_error_screen
 		$widgets.options_list.draw_normal []

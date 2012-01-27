@@ -14,6 +14,7 @@ class DataController
 	end
 
 	# get a list of possible links similar to the given name
+	# exclude all links that math a ':'-Character
 	def search_matching_links_to name
 		answer = nil
 		if internet_available?
@@ -26,6 +27,7 @@ class DataController
 	end
 
 	# returns the requested data for the given name
+	# exclude all links that math a ':'-Character
 	def look_for name
 		answer = nil
 		if internet_available?

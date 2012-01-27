@@ -27,18 +27,19 @@ class Shoes::TitleBar < Shoes::Widget
 		end #main.clear
 	end
 
-	# print search_results to optionlist
+	# Print search_results to optionlist.
 	def draw_search_results items=[]
 		$widgets.options_list.draw_normal items
 		$widgets.mind_map.draw_welcome_screen
 	end
 	
-	# Search links with the help of the correspondending search string in the search bar
+	# Search links with the help of the correspondending
+	# search string in the search bar.
 	def lookup_text
 		$app.data_controller.search_matching_links_to @search_text
 	end
 
-	# refresh search results
+	# Refresh search results.
 	def process_search
 		# stores the last search results
 		$app.save_last_request
@@ -47,17 +48,18 @@ class Shoes::TitleBar < Shoes::Widget
 		$app.current_search = { phrase: @search_text, thumbnail: nil }
 	end
 
-	# update the text into the search-line
+	# Update the text into the search-line.
 	def write text
 		@search_text = @line.text = text
 	end
 
-	# set the application focus to the search-line
+	# Set the application focus to the search-line.
 	def set_focus
 		@line.focus
 	end
 
-	# pop the item form the history and let it show
+	# pop the item form the history and let it show.
+	# this is a event-method for Back-Button.
 	def turn_back
 		search = $app.get_last_request
 		write search[:phrase]

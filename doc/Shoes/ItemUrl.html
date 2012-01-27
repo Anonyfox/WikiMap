@@ -1,306 +1,200 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+
+<html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-	<title>Class: Shoes::ItemUrl</title>
+<title>Class: Shoes::ItemUrl</title>
 
-	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
 
-	<script src="../js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
 
-</head>
-<body class="class">
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#classes">Classes</a>
-          <a href="../index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="../app/views/item_url_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/views/item_url.rb">app/views/item_url.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
 
-			
-		</div>
 
-		<div id="class-metadata">
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
 
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link">Shoes::Widget</p>
-				
-			</div>
-			
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
 
-			<!-- Namespace Contents -->
-			
 
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-c-new">::new</a></li>
-					
-					<li><a href="#method-i-draw_hovered">#draw_hovered</a></li>
-					
-					<li><a href="#method-i-draw_normal">#draw_normal</a></li>
-					
-				</ul>
-			</div>
-			
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/views/item_url.rb
+  </ul>
+</nav>
 
-			<!-- Included Modules -->
-			
-		</div>
+    
+  </div>
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="../README.html">README</a></li>
-				
-				</ul>
-			</div>
-			
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Shoes::Widget
+  
+</nav>
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="../images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
 
-				<ul class="link-list">
-				
-					<li><a href="../Shoes.html">Shoes</a></li>
-				
-					<li><a href="../Shoes/ItemUrl.html">Shoes::ItemUrl</a></li>
-				
-					<li><a href="../Shoes/MindMap.html">Shoes::MindMap</a></li>
-				
-					<li><a href="../Shoes/OptionsList.html">Shoes::OptionsList</a></li>
-				
-					<li><a href="../Shoes/StatusBar.html">Shoes::StatusBar</a></li>
-				
-					<li><a href="../Shoes/TitleBar.html">Shoes::TitleBar</a></li>
-				
-					<li><a href="../DataController.html">DataController</a></li>
-				
-					<li><a href="../GraphvizSimple.html">GraphvizSimple</a></li>
-				
-					<li><a href="../Phrases.html">Phrases</a></li>
-				
-					<li><a href="../WikiClient.html">WikiClient</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+  </ul>
+</nav>
 
-			
-		</div>
-	</div>
+  </div>
 
-	<div id="documentation">
-		<h1 class="class">Shoes::ItemUrl</h1>
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
 
-		<div id="description">
-			<p>
-this is a very simple widget which contains just a background and a short
+  <ul>
+  
+    <li class="file"><a href="../README.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Shoes.html">Shoes</a>
+  
+    <li><a href="../Shoes/ItemUrl.html">Shoes::ItemUrl</a>
+  
+    <li><a href="../Shoes/MindMap.html">Shoes::MindMap</a>
+  
+    <li><a href="../Shoes/OptionsList.html">Shoes::OptionsList</a>
+  
+    <li><a href="../Shoes/StatusBar.html">Shoes::StatusBar</a>
+  
+    <li><a href="../Shoes/TitleBar.html">Shoes::TitleBar</a>
+  
+    <li><a href="../DataController.html">DataController</a>
+  
+    <li><a href="../GraphvizSimple.html">GraphvizSimple</a>
+  
+    <li><a href="../Phrases.html">Phrases</a>
+  
+    <li><a href="../ShoesController.html">ShoesController</a>
+  
+    <li><a href="../WikiClient.html">WikiClient</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Shoes::ItemUrl</h1>
+
+  <div id="description" class="description">
+    
+<p>this is a very simple widget which contains just a background and a short
 text. if you hover over it,  the background will change and the text will
-be underlined the given block is the click-actionhandler. 
-</p>
+be underlined the given block is the click-actionhandler.</p>
 
-		</div>
+  </div><!-- description -->
 
-		<!-- Constants -->
-		
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
 
-		<!-- Attributes -->
-		
+    
 
-		<!-- Methods -->
-		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
+    
 
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-c-new"></a>
+    
 
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">(name, &block)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
 
-				<div class="method-description">
-					
-					<p>
-create a new item, giving it a name and an click-behaviour.
-</p>
-					
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-					
-					<div class="method-source-code"
-						id="new-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/views/item_url.rb, line 10</span>
-10:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>
-11:                 <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-12:                 <span class="ruby-ivar">@main</span> = <span class="ruby-identifier">flow</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">298</span>, <span class="ruby-identifier">margin</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>
-13:                 <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">hover</span> { <span class="ruby-identifier">draw_hovered</span> }
-14:                 <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">leave</span> { <span class="ruby-identifier">draw_normal</span> }
-15:                 <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">click</span> { <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> }
-16:                 <span class="ruby-identifier">draw_normal</span>
-17:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+        <div class="method-description">
+          
+          <p>create a new item, giving it a name and an click-behaviour.</p>
+          
 
-				
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/views/item_url.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>
+        <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+        <span class="ruby-ivar">@main</span> = <span class="ruby-identifier">flow</span> <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-value">298</span>, <span class="ruby-identifier">margin</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+        <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">hover</span> { <span class="ruby-identifier">draw_hovered</span> }
+        <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">leave</span> { <span class="ruby-identifier">draw_normal</span> }
+        <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">click</span> { <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> }
+        <span class="ruby-identifier">draw_normal</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
 
-				
-			</div>
+        
 
-		
-		</div>
-	
-		<div id="private-instance-method-details" class="method-section section">
-			<h3 class="section-header">Private Instance Methods</h3>
+        
+      </div><!-- new-method -->
 
-		
-			<div id="draw-hovered-method" class="method-detail ">
-				<a name="method-i-draw_hovered"></a>
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
 
-				<div class="method-heading">
-				
-					<span class="method-name">draw_hovered</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="draw-hovered-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/views/item_url.rb, line 26</span>
-26:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draw_hovered</span>
-27:                 <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">clear</span> {
-28:                         <span class="ruby-identifier">background</span> <span class="ruby-identifier">rgb</span>(<span class="ruby-value">135</span>,<span class="ruby-value">206</span>,<span class="ruby-value">250</span>,<span class="ruby-value">0.2</span>), <span class="ruby-identifier">curve</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>
-29:                         <span class="ruby-identifier">para</span> <span class="ruby-ivar">@name</span>, <span class="ruby-identifier">size</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">leading</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">margin</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">margin_left</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">underline</span><span class="ruby-operator">:</span> <span class="ruby-value str">'single'</span>
-30:                 }
-31:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="draw-normal-method" class="method-detail ">
-				<a name="method-i-draw_normal"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">draw_normal</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="draw-normal-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/views/item_url.rb, line 20</span>
-20:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draw_normal</span>
-21:                 <span class="ruby-ivar">@main</span>.<span class="ruby-identifier">clear</span> {
-22:                         <span class="ruby-identifier">para</span> <span class="ruby-ivar">@name</span>, <span class="ruby-identifier">size</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">leading</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">margin</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">margin_left</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>
-23:                 }
-24:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
-
-	</div>
+</div><!-- documentation -->
 
 
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
-
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
-
-</body>
-</html>
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.11.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
 

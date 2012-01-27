@@ -5,6 +5,7 @@ Shoes.setup do
 	gem 'net-ping'
 end
 
+# The Shoes window procedure to create a new window.
 Shoes.app title:"WikiMap", height:700, width: 1000, resizable: false do
 	# require the widget-files, libraries and gems
 	Dir.glob(File.dirname(__FILE__) + '/app/views/*', &method(:require) )
