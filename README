@@ -2,14 +2,13 @@ Das Repo zum WikiMap (Wikipedia Mindmap). Projektverwaltung findet im Redmine st
 
 Kurze Erklärung zu der Ordnerhierarchie: 
 
-/app/  				-   hier liegt die eigentliche Anwendung. 
-						Strukturiert in der MVC-Architektur !
-/app/libs/   		-   Der Platz für verwendete Bibliotheken.
-/app/controllers/	-	Alle Controller die für die Kontrolle des Programmflusses.
-/app/views/			- 	Alle Views von Shoes.
-/doc/				-	Die Dokumentation von WikiMap. (RDoc)
-/test/ 				-	Hier kommen die ganzen Tests rein!
-/web/				- 	Eine Web-Version von WikiMap.
+/app/  			- hier liegt die eigentliche Anwendung. (MVC-Architektur!)
+/app/libs/   		-  Der Platz für verwendete Bibliotheken.
+/app/controllers/	- Alle Controller die für die Kontrolle des Programmflusses.
+/app/views/		- Alle Views von Shoes.
+/doc/			- Die Dokumentation von WikiMap. (RDoc)
+/test/ 			- Hier kommen die ganzen Tests rein!
+/web/			- Eine Web-Version von WikiMap.
 
 Starten der Anwendung:
 
