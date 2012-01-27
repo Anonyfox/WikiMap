@@ -56,13 +56,14 @@ module WikiClient
 
 		destination
 	end
+	
 
 	# Generate a exportable picture from 'links' around a root node 'phrase'.
 	def self.generate_picture phrase, links=[], destination
 		mygraph = self.graph({
 			phrase: phrase, 
 			links: links, 
-			graph: {"bgcolor" => "transparent"}, 
+			graph: {"bgcolor" => "white"}, 
 			node: {"color" => "white", "style" => "filled"}, 
 			edge: {"arrowhead" => "vee"}
 		})
