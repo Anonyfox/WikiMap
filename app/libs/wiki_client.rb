@@ -48,7 +48,7 @@ module WikiClient
 		mygraph = self.graph({
 			phrase: phrase, 
 			links: links, 
-			graph: {"bgcolor" => "transparent", "size" => 6.25}, 
+			graph: {"bgcolor" => "transparent", "size" => 6.25, "outputorder" => "edgesfirst"}, 
 			node: {"color" => "white", "style" => "filled"}, 
 			edge: {"arrowhead" => "vee"}
 		})
@@ -63,7 +63,7 @@ module WikiClient
 		mygraph = self.graph({
 			phrase: phrase, 
 			links: links, 
-			graph: {"bgcolor" => "white"}, 
+			graph: {"bgcolor" => "white", "outputorder" => "edgesfirst"}, 
 			node: {"color" => "white", "style" => "filled"}, 
 			edge: {"arrowhead" => "vee"}
 		})
