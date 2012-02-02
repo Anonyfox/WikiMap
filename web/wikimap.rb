@@ -39,3 +39,9 @@ end
 get '/about' do
 	haml :about
 end
+
+get '/download' do
+	filename = 'WikiMap.shy.tar.gz'
+	@path = File.expand_path(__FILE__.to_s).split("/")[0..-2].join("/") + "/download/"
+	send_file @path+filename, :filename => filename, :type => 'Application/octet-stream'
+end

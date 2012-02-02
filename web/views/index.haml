@@ -13,11 +13,13 @@
 		#content
 			#header.ui-corner-top
 				#header_left.ui-corner-right
-					&lt;&lt; about
+					%small
+						%button{onclick:"show_abouts()"} further informations
 				#header_center
 					%h1 WikiMap 1.0
 				#header_right.ui-corner-left
-					&gt;&gt; download for Desktop
+					%small
+						%button{onclick:"get_file()"} download for Desktop
 				#header_clear
 			#content_bg.ui-corner-bottom
 				#titlebar.ui-corner-all

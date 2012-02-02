@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	style_page();
+	load_abouts();
 });
 
 function style_page() {
@@ -8,6 +9,20 @@ function style_page() {
 	$('#options_list').fadeOut(0);
 	$('#mindmap').fadeOut(0);
 	$('#search').focus();
+	$('#about_box').dialog({
+		modal: true,
+		height: 400,
+		width: 600,
+		autoOpen: false,
+		buttons: {
+			Ok: function() { $( this ).dialog( "close" ); }
+		}
+	});
+	$('#search').bind("keypress", function (e) {
+		if(e.keyCode==13){
+    	wiki_ask();
+    }
+	})
 }
 
 function wiki_ask() {
@@ -50,4 +65,12 @@ function load_abouts() {
 	$.get("/about", function (data) {
 		$('#about_box').html(data);
 	})
+}
+
+function show_abouts() {
+	$('#about_box').dialog("open");
+}
+
+function get_file() {
+	window.location = "/download";
 }
