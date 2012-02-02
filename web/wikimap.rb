@@ -21,11 +21,21 @@ get '/get' do
 end
 
 get '/get_mm_data' do
-	@items = WikiClient.get URI.decode(params["query"])
+	query = URI.decode params["query"]
+	@items = WikiClient.get query
 	mm_items = @items[0..200].map{|item|
 		size = rand(6) + 1
-		click = "function() {mm_get('#{URI.decode(item)}');}"
+		click = "function() {wiki_get('#{URI.decode(item)}');}"
 		"{text:\"#{item}\", weight:#{size}, handlers:{click:#{click}}}"
 	}.join(",")
 	str = "[" + mm_items + "]"
+end
+
+get '/get_random_pages' do
+	@items = WikiClient.random_pages
+	haml :items
+end
+
+get '/about' do
+	haml :about
 end

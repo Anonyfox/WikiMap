@@ -2,9 +2,9 @@
 %html
 	%head
 		%title WikiMap 1.0
-		%link{type:"text/css",href:"styles.css",rel:"stylesheet"}
 		%link{type:"text/css",href:"css/start/jquery-ui.css",rel:"stylesheet"}
 		%link{type:"text/css",href:"css/jcloud.css",rel:"stylesheet"}
+		%link{type:"text/css",href:"styles.css",rel:"stylesheet"}
 		%script{type:"text/javascript",src:"js/jquery.js"}
 		%script{type:"text/javascript",src:"js/jquery-ui.js"}
 		%script{type:"text/javascript",src:"js/jcloud.js"}
@@ -21,11 +21,15 @@
 				#header_clear
 			#content_bg.ui-corner-bottom
 				#titlebar.ui-corner-all
-					Enter Search Phrase: 
-					%input#search{type:"text",size:50}
-					%button{onclick:"wiki_ask()"} Search this!
+					%small
+						%button{onclick:"get_randoms()"} Random Pages!
+					or search: 
+					%input#search{type:"text",size:50, style:"line-height:20px"}
+					%small
+						%button{onclick:"wiki_ask()"} Search this!
 				#contentbox
 					#options_list.ui-corner-all
-						rjkghfsoad
+						&nbsp;
 					#mindmap.ui-corner-all
-						eiufdshjl
+						höhö
+		#about_box{title:"abouts"} &nbspp;

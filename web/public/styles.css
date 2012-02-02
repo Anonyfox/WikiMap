@@ -66,6 +66,7 @@ body {
 
 #options_list {
 	background: rgba(255,255,255,0.4);
+	width: 80%;
 	margin: auto;
 	text-align: left;
 }
@@ -78,7 +79,18 @@ body {
 }
 
 .link_style {
-	color: #0000ff;
-	text-decoration: underline;
+	/* color: #0000ff;
+	text-decoration: underline; */
 	cursor: pointer;
+	padding: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block; 
+	width: auto;
+	white-space: nowrap;
+}
+
+.options_item_container {
+	margin: 5px;
+	margin: auto;
 }

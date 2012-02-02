@@ -24,14 +24,14 @@ module WikiClient
 	def self.get query_str
 		query_url = build_query_url query_str
 		h = open(query_url).read
-		self.response_links JSON(h)
+		self.response_links(JSON(h)).select { |link| !(link =~ /:/) }
 	end
 
 	# just returns some random pages of wikipedia.
 	def self.random_pages
 		h = open("http://de.wikipedia.org/w/api.php?action=query&format=json&list=random&rnlimit=10").read
 		links = self.random_links JSON(h)
-		debug links
+		#debug links
 		links.select { |link| !(link =~ /:/) }
 	end
 

@@ -1,5 +1,5 @@
 - # encoding: utf-8
-%h3= "Links found (#{@items.size}):"
+-#%h3= "Links found (#{@items.size}):"
 - @items.each do |item|
-		%span.link_style{onclick:"wiki_get('#{item}')"}= item
-		&nbsp;
+	%span.link_style.ui-state-highlight.ui-corner-all{onclick:"wiki_get('#{item}')"}= item
+	&nbsp;
